@@ -1,0 +1,37 @@
+.subscription{
+    background-image: url("../../../assets/corona-suscription.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 40vh;
+    font-size: 1.2em;
+}
+
+/* form floating */
+.input-group-text{
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.input-group{
+    right: 1em;
+}
+
+.input-group{
+    right: 1em;
+}
+
+label{
+    margin-right: 1.5em;
+    font-size: .8em;
+    font-weight: 600;
+    text-shadow: 0px 0px 14px rgba(0, 0, 0, 0.5);
+}
+
+.btn{
+    position: absolute;
+    right: 1.2em;
+}

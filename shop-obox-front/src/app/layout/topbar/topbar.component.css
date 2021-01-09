@@ -1,0 +1,22 @@
+.topbar{
+    color: #fff;
+}
+
+.countProdu{
+    background-color: rgb(163, 69, 69);
+    font-size: 0.6em;
+    padding: 0.3em;
+    border-radius: 20%;
+}
+
+.cart{
+    cursor: pointer;
+}
+
+.iconSocial{
+    font-size: 1.2em;
+}
+
+.iconSocial fa-icon{
+    margin-right: 0.6em;
+}
