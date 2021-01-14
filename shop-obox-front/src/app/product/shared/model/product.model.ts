@@ -4,9 +4,11 @@ export interface Product {
     name?:string;
     description?:string;
     price?:number;
+    priceSale?:number;
     quantity?:number;
     inventoryStatus?:string;
     category?:string;
     image?:string;
     rating?:number;
+    isSale?:boolean;
 }

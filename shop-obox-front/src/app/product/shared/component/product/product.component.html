@@ -1,1 +1,30 @@
-<p>product works!</p>
+<div class="product-grid" [class]="isList ? 'product-list' : 'product-slider'">
+    <div class="product-image">
+        <a href="#" class="image">
+            <img class="pic-1" src="/assets/product/{{product.image}}">
+        </a>
+        <div *ngIf="!product.isSale">
+            <span class="product-sale-label">¡Oferta!</span>
+            <div class="price"><span>{{product.price}}$</span> {{product.price}}$</div>
+        </div>
+        <div *ngIf="product.isSale">
+            <div class="price fixed">{{product.price}}$</div>
+        </div>
+        <ul class="product-links">
+            <li><a href="#" data-tip="Agregar a favorito"><fa-icon [icon]="icons.heart"></fa-icon></a></li>
+            <li><a href="#" data-tip="Ver producto"><fa-icon [icon]="icons.view"></fa-icon></a></li>
+            <li><a href="" data-tip="Agregar a carrito"><fa-icon [icon]="icons.cart"></fa-icon></a></li>
+        </ul>
+    </div>
+    <div class="product-content">
+        <h3 class="title"><a href="#">{{product.description}}</a></h3>
+        <ul class="rating">
+            <li *ngFor="let rating of fillRating(product.rating)">
+                <fa-icon [icon]="icons.start"></fa-icon>
+            </li>
+            <li *ngFor="let rating of fillRating(5-product.rating)" class="far">
+                <fa-icon [icon]="icons.start"></fa-icon>
+            </li>
+        </ul>
+    </div>
+</div>

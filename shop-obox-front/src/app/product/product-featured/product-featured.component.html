@@ -1,1 +1,8 @@
-
+<p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="4" [circular]="true"
+    [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions">
+    <ng-template let-item pTemplate="item">
+        <div class="w-100">
+            <app-product [product]="item" [isList]="false"></app-product>
+        </div>
+    </ng-template>
+</p-carousel>

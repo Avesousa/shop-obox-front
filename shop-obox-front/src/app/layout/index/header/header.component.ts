@@ -13,7 +13,7 @@ import { CanvasService } from '../../shared/canvas.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderIndexComponent implements OnInit, OnDestroy {
   private authSubscription: Subscription;
   public user: User;
   public showSearch;
@@ -42,6 +42,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.authSubscription.unsubscribe();
+    // this.authSubscription.unsubscribe();
   }
 }

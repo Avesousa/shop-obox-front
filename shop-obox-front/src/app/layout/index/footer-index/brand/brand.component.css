@@ -1,7 +1,0 @@
-.logo-brand {
-    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-}
-.logo-brand:hover {
-    transition: all 0.4s ease;
-}

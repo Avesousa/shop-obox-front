@@ -1,31 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-.h1, .h2{
+.h1,
+.h2 {
     font-weight: bold;
 }
 
-.h1{
+.pt-100{
+    padding-top: 100px !important;
+}
+
+.h1 {
     font-size: 3em;
 }
 
-.h2{
+.h2 {
     font-size: 2.5em;
 }
 
-
 /* colors */
 
-.color-blue{
-    color:rgb(7, 82, 168);
+.color-blue {
+    color: rgb(7, 82, 168);
 }
-.bg-blue{
-    background-color:rgb(5, 49, 100);
+.bg-blue {
+    background-color: rgb(5, 49, 100);
 }
-.color-red{
-    color: #dc3545!important;
+.color-red {
+    color: #dc3545 !important;
 }
-.bg-red{
-    background-color: #dc3545!important;
+.bg-red {
+    background-color: #dc3545 !important;
 }
-.color-white{
-    color:#fff;
+.color-white {
+    color: #fff;
+}
+
+.p-carousel-indicators {
+    display: none;
 }

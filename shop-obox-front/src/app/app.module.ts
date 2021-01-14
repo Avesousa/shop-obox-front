@@ -1,9 +1,8 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -24,27 +23,25 @@ import { CategoryFeaturedComponent } from './category/category-featured/category
 import { CategoryComponent } from './category/shared/component/category/category.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HeaderComponent } from './layout/index/header/header.component';
-import { NavComponent } from './layout/index/header/nav/nav.component';
+import { NavComponent } from './layout/nav/nav.component';
 import { ToolbarCartComponent } from './layout/index/header/toolbar-cart/toolbar-cart.component';
 import { ContentComponent } from './layout/index/header/content/content.component';
 import { IndexComponent } from './layout/index/index.component';
 import { ContentIndexComponent } from './layout/index/content-index/content-index.component';
 import { ProductIndexComponent } from './layout/index/product-index/product-index.component';
 import { SubscriptionComponent } from './layout/subscription/subscription.component';
-import { FooterIndexComponent } from './layout/index/footer-index/footer-index.component';
-import { CopyFooterComponent } from './layout/index/footer-index/copy-footer/copy-footer.component';
-import { BrandComponent } from './layout/index/footer-index/brand/brand.component';
 import { CarouselModule } from 'primeng/carousel';
 import { ProductService } from './product/shared/service/product.service';
-// import {DataViewModule} from 'primeng/dataview';
-// import {ButtonModule} from 'primeng/button';
-// import {PanelModule} from 'primeng/panel';
-// import {DropdownModule} from 'primeng/dropdown';
-// import {DialogModule} from 'primeng/dialog';
-// import {InputTextModule} from 'primeng/inputtext';
-// import {RatingModule} from 'primeng/rating';
-// import {RippleModule} from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { RouterModule } from '@angular/router';
+import { MainRoutingModule } from './router/main.routing';
+import { BrandComponent } from './layout/footer/brand/brand.component';
+import { CopyFooterComponent } from './layout/footer/copy-footer/copy-footer.component';
+import { PageProductsComponent } from './pages/products/products.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { HeaderIndexComponent } from './layout/index/header/header.component';
+import { NavMainComponent } from './layout/header/nav-main/nav-main.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +51,6 @@ import { ProductService } from './product/shared/service/product.service';
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
     TopbarComponent,
@@ -73,27 +69,32 @@ import { ProductService } from './product/shared/service/product.service';
     ContentIndexComponent,
     ProductIndexComponent,
     SubscriptionComponent,
-    FooterIndexComponent,
+    FooterComponent,
     CopyFooterComponent,
-    BrandComponent
+    BrandComponent,
+    PageProductsComponent,
+    HeaderComponent,
+    HeaderIndexComponent,
+    NavMainComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MainRoutingModule,
+    RouterModule,
     NgbModule,
     FontAwesomeModule,
     CarouselModule,
     CarouselModule,
-    // ButtonModule,
+    ButtonModule,
     FormsModule,
     HttpClientModule,
-    // DataViewModule,
     // RatingModule,
     // PanelModule,
     // InputTextModule,
     // // DropdownModule,
     // // DialogModule,
-    // RippleModule
+    RippleModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],
