@@ -8,7 +8,8 @@ export interface Product {
     quantity?:number;
     inventoryStatus?:string;
     category?:string;
-    image?:string;
+    imagen?:string;
+    ext?:string;
     rating?:number;
     isSale?:boolean;
 }

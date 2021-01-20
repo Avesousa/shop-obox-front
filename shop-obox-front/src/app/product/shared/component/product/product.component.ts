@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Product } from '../../model/product.model';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'app-product',
@@ -20,7 +21,7 @@ export class ProductComponent implements OnInit {
     cart: faShoppingCart
   }
 
-  constructor() { }
+  constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
   }

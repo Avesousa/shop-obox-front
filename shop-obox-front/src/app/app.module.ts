@@ -42,6 +42,7 @@ import { PageProductsComponent } from './pages/products/products.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { HeaderIndexComponent } from './layout/index/header/header.component';
 import { NavMainComponent } from './layout/header/nav-main/nav-main.component';
+import { SpinnerComponent } from './layout/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { NavMainComponent } from './layout/header/nav-main/nav-main.component';
     PageProductsComponent,
     HeaderComponent,
     HeaderIndexComponent,
-    NavMainComponent
+    NavMainComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

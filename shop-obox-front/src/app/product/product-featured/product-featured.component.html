@@ -1,3 +1,4 @@
+<layout-spinner #spinner *ngIf="spinnerIsView" [config]="{ showMessage: false, size: 'xl', center: true }" class="mr-3"></layout-spinner>
 <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="4" [circular]="true"
     [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions">
     <ng-template let-item pTemplate="item">

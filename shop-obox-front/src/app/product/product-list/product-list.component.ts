@@ -24,18 +24,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.products = this.productService.getProducts();
-    // this.productService.getProducts().then(data =>{
-    //   this.products = data;
-    //   console.log(this.products);
-    // });
-
-    /*this.sortOptions = [
-      { label: 'Precio de mayor a menor', value: '!price' },
-      { label: 'Precio de menor a mayor', value: 'price' }
-    ];*/
-
-    // this.primeng.ripple = true;
+    this.productService.getProducts().subscribe((data)=>{
+      this.products = data;
+    })
   }
 
   onSortChange(event) {

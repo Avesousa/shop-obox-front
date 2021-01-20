@@ -1,7 +1,7 @@
 <div class="product-grid" [class]="isList ? 'product-list' : 'product-slider'">
     <div class="product-image">
         <a href="#" class="image">
-            <img class="pic-1" src="/assets/product/{{product.image}}">
+            <img class="pic-1" [src]="productService.getUrlImage() + product.ext + '/' + product.imagen">
         </a>
         <div *ngIf="!product.isSale">
             <span class="product-sale-label">¡Oferta!</span>
