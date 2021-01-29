@@ -21,7 +21,7 @@ const mainRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(mainRoutes, { scrollPositionRestoration: 'enabled' })],
+    imports: [RouterModule.forRoot(mainRoutes, { scrollPositionRestoration: 'enabled', useHash: true })],
     exports: [RouterModule],
   })
   export class MainRoutingModule {}

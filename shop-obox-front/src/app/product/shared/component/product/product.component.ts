@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Product } from '../../model/product.model';
@@ -9,9 +9,9 @@ import { ProductService } from '../../service/product.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
-  @Input() product : Product;
+  @Input() product: Product;
   @Input() isList: boolean;
 
   public icons = {
@@ -23,10 +23,9 @@ export class ProductComponent implements OnInit {
 
   constructor(public productService: ProductService) { }
 
-  ngOnInit(): void {
-  }
-
-  fillRating(value){
-    return Array(value).fill(value,0,5);
+  fillRating(value) {
+    let raiting = (isNaN(value) ? 4 : value);
+    let response = raiting > 0 ? Array(raiting).fill(raiting, 0, 5) : [];
+    return response;
   }
 }

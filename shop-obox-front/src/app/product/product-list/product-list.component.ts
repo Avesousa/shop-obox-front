@@ -24,22 +24,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.productService.getProducts().subscribe((data)=>{
-      this.products = data;
+    this.productService.getProducts().subscribe((response: any) => {
+      this.products = response.data;
     })
-  }
-
-  onSortChange(event) {
-    // let value = event.value;
-
-    // if (value.indexOf('!') === 0) {
-    //   this.sortOrder = -1;
-    //   this.sortField = value.substring(1, value.length);
-    // }
-    // else {
-    //   this.sortOrder = 1;
-    //   this.sortField = value;
-    // }
   }
 
 }

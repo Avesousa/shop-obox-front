@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav-main.component.html',
   styleUrls: ['./nav-main.component.css']
 })
-export class NavMainComponent implements OnInit {
+export class NavMainComponent{
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

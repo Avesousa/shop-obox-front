@@ -23,7 +23,11 @@ export class ProductService {
     return this.http.get<any>(URL + LIST, { headers: this.header });
   }
 
-  getUrlImage(): string{
+  getProductsLimit(max: number): Observable<Product[]> {
+    return this.http.get<any>(`${URL}${LIST}/${max}`, { headers: this.header });
+  }
+
+  getUrlImage(): string {
     return URL + IMAGE;
   }
 

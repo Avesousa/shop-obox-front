@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { Brand } from './shared/brand.model';
+import { BrandService } from '../../../services/brand.service';
 
 @Component({
   selector: 'brand-footer',
@@ -9,9 +11,9 @@ import { PrimeNGConfig } from 'primeng/api';
 export class BrandComponent implements OnInit {
 
   public responsiveOptions;
-  public brands;
+  public brands: Brand[];
 
-  constructor(private primeConfig: PrimeNGConfig) {
+  constructor(private primeConfig: PrimeNGConfig, public brandService: BrandService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -33,29 +35,9 @@ export class BrandComponent implements OnInit {
 
   ngOnInit(): void {
     this.primeConfig.ripple = true;
-    this.brands = [
-      {
-        name:'brahma',
-        image:'brahma.png'
-      },
-      {
-        name:'heineken',
-        image:'heineken.png'
-      },
-      {
-        name:'Corona',
-        image:'corona.png'
-      },
-      {
-        name:'walker',
-        image:'walker.png'
-      },
-      {
-        name:'salentein',
-        image:'salentein.png'
-      }
-
-    ]
+    this.brandService.getBrands().subscribe((data: any) =>{
+      this.brands = data.data;
+    })
   }
 
 }

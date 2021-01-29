@@ -6,10 +6,10 @@
                 <span class="input-group-text" id="spancorreo">
                     <fa-icon [icon]="icons.mail"></fa-icon>
                 </span>
-                <input type="text" class="form-control" placeholder="Correo electrónico" aria-label="Username"
-                    aria-describedby="spancorreo">
+                <input type="text" class="form-control" placeholder="Correo electrónico" [(ngModel)]="mail">
                 </div>
-                <button class="btn btn-primary">Adherirme</button>
+                <button class="btn btn-primary" (click)="sendSubscription()">Adherirme</button>
         </div>
     </div>
 </div>
+<alert #alertSubscription></alert>

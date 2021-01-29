@@ -9,7 +9,7 @@ import { ProductService } from '../shared/service/product.service';
   templateUrl: './product-featured.component.html',
   styleUrls: ['./product-featured.component.css']
 })
-export class ProductFeaturedComponent implements OnInit {
+export class ProductFeaturedComponent{
   @ViewChild('spinner') spinner : SpinnerComponent;
   public responsiveOptions: Array<any>;
   public spinnerIsView: boolean = false;
@@ -39,19 +39,19 @@ export class ProductFeaturedComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
-  }
-
   getProducts() {
     this.spinnerIsView = true;
-    this.productService.getProducts().subscribe((res: any) => {
+    this.productService.getProductsLimit(8).subscribe((res: any) => {
+      console.log(res);
       this.products = res.data;
       this.spinnerIsView = false;
     })
   }
 
   fillRating(value) {
-    return Array(value).fill(value, 0, 5);
+    let raiting = (isNaN(value) ? 4 : value);
+    let response = raiting > 0 ? Array(raiting).fill(raiting, 0, 5) : [];
+    return response;
   }
 
 }

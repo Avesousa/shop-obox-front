@@ -11,18 +11,24 @@
             <div class="price fixed">{{product.price}}$</div>
         </div>
         <ul class="product-links">
-            <li><a href="#" data-tip="Agregar a favorito"><fa-icon [icon]="icons.heart"></fa-icon></a></li>
-            <li><a href="#" data-tip="Ver producto"><fa-icon [icon]="icons.view"></fa-icon></a></li>
-            <li><a href="" data-tip="Agregar a carrito"><fa-icon [icon]="icons.cart"></fa-icon></a></li>
+            <li><a href="#" data-tip="Agregar a favorito">
+                    <fa-icon [icon]="icons.heart"></fa-icon>
+                </a></li>
+            <li><a href="#" data-tip="Ver producto">
+                    <fa-icon [icon]="icons.view"></fa-icon>
+                </a></li>
+            <li><a href="" data-tip="Agregar a carrito">
+                    <fa-icon [icon]="icons.cart"></fa-icon>
+                </a></li>
         </ul>
     </div>
     <div class="product-content">
         <h3 class="title"><a href="#">{{product.description}}</a></h3>
         <ul class="rating">
-            <li *ngFor="let rating of fillRating(product.rating)">
+            <li *ngFor="let rating of fillRating(product.rating ? product.rating : 1)">
                 <fa-icon [icon]="icons.start"></fa-icon>
             </li>
-            <li *ngFor="let rating of fillRating(5-product.rating)" class="far">
+            <li *ngFor="let rating of fillRating(5- (product.rating ? product.rating : 1))" class="far">
                 <fa-icon [icon]="icons.start"></fa-icon>
             </li>
         </ul>
