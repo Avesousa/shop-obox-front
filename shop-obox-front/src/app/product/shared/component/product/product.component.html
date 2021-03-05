@@ -11,15 +11,22 @@
             <div class="price fixed">{{product.price}}$</div>
         </div>
         <ul class="product-links">
-            <li><a href="#" data-tip="Agregar a favorito">
+            <li *ngIf="!isFavourite">
+                <a data-tip="Agregar a favorito" (click)="setFavourite()">
                     <fa-icon [icon]="icons.heart"></fa-icon>
-                </a></li>
-            <li><a href="#" data-tip="Ver producto">
+                </a>
+            </li>
+            <li *ngIf="isFavourite">
+                <a data-tip="Eliminar de favorito" (click)="deleteFavourite()">
+                    <fa-icon [icon]="icons.heartSolid"></fa-icon>
+                </a>
+            </li>
+            <!-- <li><a data-tip="Ver producto">
                     <fa-icon [icon]="icons.view"></fa-icon>
                 </a></li>
             <li><a href="" data-tip="Agregar a carrito">
                     <fa-icon [icon]="icons.cart"></fa-icon>
-                </a></li>
+                </a></li> -->
         </ul>
     </div>
     <div class="product-content">

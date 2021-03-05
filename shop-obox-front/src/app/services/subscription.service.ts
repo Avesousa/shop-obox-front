@@ -18,7 +18,6 @@ export class SubscriptionService {
 
   //this save subscription the client
   saveSubscription(email: string): Observable<any> {
-    console.log(STORE);
     return this.http.get<any>(URL + email, { headers: this.header });
   }
 

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "deploy": "ng build --prod --base-href /gmb/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,9 +27,12 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "@popperjs/core": "^2.6.0",
     "angular-grunt-build": "^0.1.1",
     "bootstrap": "^4.5.3",
     "g": "^2.0.1",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "primeicons": "^4.1.0",
     "primeng": "^11.1.0-rc.1",
     "rxjs": "~6.6.0",
