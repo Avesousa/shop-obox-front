@@ -37,3 +37,13 @@
 .p-carousel-indicators {
     display: none;
 }
+
+@font-face {
+    font-family: 'TrajanProRegular';
+    src: url('/src/assets/fonts/TrajanProRegular.eot');
+    src: url('/src/assets/fontsfonts/TrajanProRegular.eot') format('embedded-opentype'),
+         url('/src/assets/fontsfonts/TrajanProRegular.woff2') format('woff2'),
+         url('/src/assets/fontsfonts/TrajanProRegular.woff') format('woff'),
+         url('/src/assets/fontsfonts/TrajanProRegular.ttf') format('truetype'),
+         url('/src/assets/fontsfonts/TrajanProRegular.svg#TrajanProRegular') format('svg');
+}

@@ -1,6 +1,6 @@
 header {
-    background-image: linear-gradient(rgba(84, 86, 88, 0.39), rgba(7, 82, 168, 0.39)),
-        url("https://images.hdqwalls.com/wallpapers/beverage-drink-beer-cheers-5k-e4.jpg");
+    background-image: linear-gradient(rgba(84, 86, 88, 0.59), rgba(7, 82, 168, 0.45)),
+        url("../../../../assets/chiva_regal_ice_bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,7 +10,12 @@ header {
     background-size: cover;
     height: 100vh;
     font-size: 1.2em;
-    -webkit-border-bottom-right-radius: 15%;
-    -moz-border-radius-bottomright: 15%;
-    border-bottom-right-radius: 15%;
+    //-webkit-border-bottom-right-radius: 15%;
+    //-moz-border-radius-bottomright: 15%;
+    //border-bottom-right-radius: 15%;
+    padding: 0;
+}
+
+.containerTop{
+    background-color: rgba($color: #fff, $alpha: .8);
 }

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "deploy": "ng build --prod --base-href /gmb/",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

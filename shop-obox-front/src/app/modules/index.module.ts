@@ -18,6 +18,7 @@ import { ProductFeaturedComponent } from '../product/product-featured/product-fe
 import { ProductModule } from '../product/shared/component/product/product.module';
 import { AlertModule } from '../layout/alert/alert.module';
 import { SubscriptionService } from '../services/subscription.service';
+import { CategoryService } from '../category/shared/service/category.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { SubscriptionService } from '../services/subscription.service';
     ProductIndexComponent,
     SubscriptionComponent,
   ],
-  providers: [ProductService,SubscriptionService],
+  providers: [ProductService,SubscriptionService,CategoryService],
   bootstrap: [IndexComponent],
   exports: [IndexComponent]
 })

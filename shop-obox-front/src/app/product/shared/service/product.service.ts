@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 
 const URL: string = `${environment.URL_SERVE}/productos/`;
+const STORE =  environment.STORE;
 const LIST: string = 'list';
 const IMAGE: string = 'image/';
 
@@ -17,7 +18,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  private header = new HttpHeaders({ 'content-Type': 'application/json', 'store': '70' });
+  private header = new HttpHeaders({ 'content-Type': 'application/json', 'store': STORE });
 
   getProducts(): Observable<Product[]> {
     return this.http.get<any>(URL + LIST, { headers: this.header });

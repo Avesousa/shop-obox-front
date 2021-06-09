@@ -11,6 +11,7 @@
 
 .cart{
     cursor: pointer;
+    opacity: 0;
 }
 
 .iconSocial{

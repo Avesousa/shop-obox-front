@@ -34,7 +34,6 @@ export class ProductComponent {
   }
 
   getFavourite(): boolean{
-    console.log(this.product);
     this.isFavourite = !(window.localStorage.getItem(`fav-${this.product.code}`) === null);
     return this.isFavourite;
   }
