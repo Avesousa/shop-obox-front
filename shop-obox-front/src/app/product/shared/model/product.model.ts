@@ -13,4 +13,5 @@ export interface Product {
     rating?:number;
     sale?:number;
     quantyBuy?: 1 | number;
+    totalBuy?: 0 | number;
 }

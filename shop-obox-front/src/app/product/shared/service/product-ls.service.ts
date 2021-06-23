@@ -20,25 +20,22 @@ export class ProductLocalStorageService {
 
   //Almacenar en el LS
   saveLocalStorage(product: Product,isToCart:boolean) {
-    let products: Product[];
-    //Toma valor de un arreglo con datos del LS
-    products = this.getLocalStorage(isToCart);
+    let products: Product[] = this.getLocalStorage(isToCart);
+    
     //Agregar el product al carrito
-
     let verifProd = products.find(prod => product.id == prod.id);
     if (verifProd == null || verifProd == undefined) {
+      //Agregamos el precio
+      product.totalBuy = this.calculatorPrice(product);
       //Agregamos al LS
       products.push(product);
       this.setLocalStorage(products, isToCart);
     }else if(isToCart){
       //TODO cambiar en caso de producir el evento de cambio
-      //TODO verifProd.quantyBuy += product.quantyBuy;
-      let quanty = product.quantyBuy == null || product.quantyBuy == undefined ? 1 : product.quantyBuy;
-      verifProd.quantyBuy = (verifProd.quantyBuy == null || verifProd.quantyBuy == undefined ? 0.0 : verifProd.quantyBuy) + quanty;
-      console.log(verifProd);
+      verifProd.quantyBuy += product.quantyBuy;
+      verifProd.totalBuy = this.calculatorPrice(verifProd);
       this.deleteLocalStorage(verifProd.id, isToCart);
       this.saveLocalStorage(verifProd, isToCart);
-      this.setLocalStorage(products,isToCart);
     }
 
   }
@@ -70,6 +67,16 @@ export class ProductLocalStorageService {
 
   setLocalStorage(products: Product[], isToCart:boolean){
     localStorage.setItem(isToCart ? "products" : "favourite", JSON.stringify(products));
+  }
+
+  getTotal():number{
+    let result: number = 0;
+    this.getLocalStorage(true).forEach((product) => result += this.calculatorPrice(product));
+    return result;
+  }
+
+  calculatorPrice( product:Product ) : number {
+    return (product.sale ? product.priceSale : product.price) * (product.quantyBuy ? product.quantyBuy : 1);
   }
 
 }

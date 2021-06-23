@@ -26,6 +26,7 @@ export class PageCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productLocalStorageService.getLocalStorage(true);
+    console.log(this.products);
   }
 
   goToCatalogue(){
