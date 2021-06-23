@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from '../layout/header/header.component';
-import { NavMainComponent } from '../layout/header/nav-main/nav-main.component';
+import { NavModule } from './nav.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    NavModule
   ],
   declarations: [
-    HeaderComponent,
-    NavMainComponent
+    HeaderComponent
   ],
   bootstrap: [HeaderComponent],
   exports: [HeaderComponent]

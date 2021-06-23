@@ -14,7 +14,7 @@ export class ProductIndexComponent implements OnInit {
   }
 
   viewProductList(){
-    this.router.navigateByUrl('/product-list');
+    this.router.navigateByUrl('/products/list');
   }
 
 }

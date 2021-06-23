@@ -3,7 +3,8 @@ import { SpinnerDirective } from "./spinner.directive";
 
 @Component({
     selector:'layout-spinner',
-    templateUrl: './spinner.component.html'
+    templateUrl: './spinner.component.html',
+    styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent{
     @Input() config: SpinnerDirective;

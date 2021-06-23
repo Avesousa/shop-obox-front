@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { ProductLocalStorageService } from 'src/app/product/shared/service/product-ls.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,6 +10,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 })
 export class TopbarComponent implements OnInit {
 
+  countProduct: number = 0;
   icons = {
     instagram : faInstagram,
     facebook: faFacebook,
@@ -16,9 +18,10 @@ export class TopbarComponent implements OnInit {
     cart: faShoppingCart
   };
 
-  constructor() { }
+  constructor(private productLocalStorage: ProductLocalStorageService) { }
 
   ngOnInit(): void {
+    this.countProduct = this.productLocalStorage.getLocalStorage(true).length;
   }
 
 }

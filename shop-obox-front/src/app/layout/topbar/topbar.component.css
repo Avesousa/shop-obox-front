@@ -1,5 +1,9 @@
-.topbar{
+.topbar a{
     color: #fff;
+}
+
+.topbar{
+    opacity: 0;
 }
 
 .countProdu{
@@ -11,11 +15,15 @@
 
 .cart{
     cursor: pointer;
-    opacity: 0;
+    color: #fff;
 }
 
 .iconSocial{
     font-size: 1.2em;
+}
+
+.topbar a ~ .iconSocial{
+    font-size: 1.8em;
 }
 
 .iconSocial fa-icon{

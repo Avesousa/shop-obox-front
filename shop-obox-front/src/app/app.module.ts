@@ -6,20 +6,23 @@ import { IndexModule } from '../app/modules/index.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { MainRoutingModule } from './router/main.routing';
-import { SpinnerComponent } from './layout/spinner/spinner.component';
-import { PageProductModule } from './modules/product-list,module';
-import { ProductModule } from './product/shared/component/product/product.module';
+import { PageProductModule } from './modules/product-list.module';
+import { NavModule } from './modules/nav.module';
+import { PageCartModule } from './modules/pageCart.module';
 
 @NgModule({
-  declarations: [AppComponent,SpinnerComponent
+  declarations: [
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MainRoutingModule,
     RouterModule,
+    NavModule,
     IndexModule,
-    PageProductModule
+    PageProductModule,
+    PageCartModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

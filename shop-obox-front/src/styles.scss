@@ -1,0 +1,58 @@
+$blueBg: rgb(0, 0, 0);
+$blueColor: rgb(8,8,8);
+$redBg: #dc3545 !important;
+$redColor: #dc3545 !important;
+
+/* You can add global styles to this file, and also import other style files */
+.h1,
+.h2 {
+    font-weight: bold;
+}
+
+.pt-100{
+    padding-top: 100px !important;
+}
+
+.h1 {
+    font-size: 3em;
+}
+
+.h2 {
+    font-size: 2.5em;
+}
+
+/* colors */
+
+.color-blue {
+    color: $blueColor;
+}
+.bg-blue {
+    background-color: $blueBg;
+}
+.color-red {
+    color: $redColor;
+}
+.bg-red {
+    background-color: $redBg;
+}
+.color-white {
+    color: #fff;
+}
+
+.p-carousel-indicators {
+    display: none;
+}
+
+layout-spinner{
+  width: 100%;
+}
+
+@font-face {
+    font-family: 'TrajanProRegular';
+    src: url('/src/assets/fonts/TrajanProRegular.eot');
+    src: url('/src/assets/fontsfonts/TrajanProRegular.eot') format('embedded-opentype'),
+         url('/src/assets/fontsfonts/TrajanProRegular.woff2') format('woff2'),
+         url('/src/assets/fontsfonts/TrajanProRegular.woff') format('woff'),
+         url('/src/assets/fontsfonts/TrajanProRegular.ttf') format('truetype'),
+         url('/src/assets/fontsfonts/TrajanProRegular.svg#TrajanProRegular') format('svg');
+}

@@ -4,11 +4,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductComponent } from './product.component';
 import { ProductService } from '../../service/product.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
         NgbModule,
+        FormsModule,
         FontAwesomeModule
     ],
     declarations: [

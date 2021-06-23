@@ -2,16 +2,23 @@
     <div class="row pt-3 topbar">
         <div class="col-sm-4 iconSocial">
             <span>
-                <fa-icon [icon]="icons.facebook"></fa-icon>
-                <fa-icon [icon]="icons.instagram"></fa-icon>
-                <fa-icon [icon]="icons.whatsapp"></fa-icon>
+                <a href="https://bit.ly/3gInIiV" target="_blank" rel="noopener noreferrer">
+                    <fa-icon [icon]="icons.instagram"></fa-icon>
+                </a>
+                <a href="https://bit.ly/3qkUqu0" target="_blank" rel="noopener noreferrer">
+                    <fa-icon [icon]="icons.facebook"></fa-icon>
+                </a>
+               
+                <a href="https://bit.ly/2UmbL9Z" target="_blank" rel="noopener noreferrer">
+                    <fa-icon [icon]="icons.whatsapp"></fa-icon>
+                </a>
             </span>
         </div>
         <div class="col-sm-4 offset-sm-4">
             <span class="cart float-right">
                 <fa-icon [icon]="icons.cart"></fa-icon>
                 Carrito
-                <span class="countProdu">150</span>
+                <span class="countProdu">{{countProduct > 9 ? countProduct : '0' + countProduct}}</span>
             </span>
         </div>
     </div>

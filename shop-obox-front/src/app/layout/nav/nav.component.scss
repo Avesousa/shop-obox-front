@@ -4,9 +4,13 @@
   top: 5vh;
   z-index: 1000;
   padding: 0;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
-$bgHeader: #F89F3F;
+$bgHeader: #000;
+$bgHeaderWhite: #fff;
+$bgRed: #dc3545 ;
 //rgba(220, 53, 69,.95);
 
 .static{
@@ -54,18 +58,19 @@ $bgHeader: #F89F3F;
 }
 
 .nav-item {
-  line-height: 5;
+  line-height: 6;
   margin-left: 50px;
   margin-right: 50px;
 }
 
 .nav-item a{
   padding: 0;
+  cursor: pointer;
 }
 
 .logo {
-  margin-right: 10%;
-  margin-left: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 li > a.nav-link{
@@ -75,9 +80,10 @@ li > a.nav-link{
 
 .category{
   opacity: 0;
+  display: none;
   position: fixed;
-  margin-top: -2vh;
-  background-color: rgba(255,255,255,.8);
+  margin-top: -4vh;
+  background-color: rgba(0,0,0,1);
   border-radius: 20px;
   border-top-left-radius: 0;
   font-size: 0.85em;
@@ -89,7 +95,9 @@ li > a.nav-link{
   animation-duration: 1s;
   animation-name: categoryOn;
   opacity: 1;
+  display: inline-block;
 }
+
 
 @keyframes categoryOn {
   from {
@@ -104,7 +112,7 @@ li > a.nav-link{
 .category ul{
   margin-top: 25px;
   margin-bottom: 25px;
-  padding-left: 15px; 
+  padding-left: 15px;
   padding-right: 25px;
   padding-top: 0px;
   overflow: scroll;
@@ -119,7 +127,7 @@ li > a.nav-link{
 
 .subcategory a{
   text-decoration: none;
-  color: #4b4b4b;
+  color: #f0f0f0;
 }
 
 .subcategory{
@@ -127,22 +135,17 @@ li > a.nav-link{
 }
 
 .subcategory:hover{
-  text-decoration: none ;
-  animation-duration: 1s;
-  animation-name: subCategoryHover;
-  color: #f0f0f0;
-  background-color: rgba($bgHeader, 1);
+  background-color: rgba($bgRed, 1);
+  color: $bgHeader !important;
 }
 
 @keyframes subCategoryHover {
   from {
     background-color: rgba(220, 53, 69, 0);
-    color: #4b4b4b;
   }
 
   to {
-    background-color: rgba($bgHeader, 1);
-    color: #f0f0f0;
+    background-color: rgba($bgRed, 1);
   }
 }
 
@@ -164,7 +167,7 @@ li > a.nav-link{
 
 .category ul::-webkit-scrollbar-button:increment,.category ul::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .category ul::-webkit-scrollbar:horizontal {
   height: 5px;
@@ -177,5 +180,11 @@ li > a.nav-link{
 }
 
 .category ul::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
+}
+
+.a-subcategory{
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
 }

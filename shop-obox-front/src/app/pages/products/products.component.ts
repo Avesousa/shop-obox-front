@@ -1,4 +1,6 @@
+import { Params } from './../../../../node_modules/@fortawesome/fontawesome-svg-core/index.d';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'page-products',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageProductsComponent implements OnInit {
 
-  constructor() { }
+  value: any;
+  type: string;
+  title: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.type = params.get('type');
+      this.value = params.get('value');
+      this.title = params.get('title');
+    })
   }
 
 }

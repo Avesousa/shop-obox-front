@@ -1,0 +1,22 @@
+<div class="row cart">
+    <div class="category">
+        <ul>
+            <li class="subcategory">
+                <fa-icon [icon]="icons.user" class="icon-menu"></fa-icon>
+                <a href="#">Mis pedidos</a>
+            </li>
+            <li class="subcategory">
+              <fa-icon [icon]="icons.heartSolid" class="icon-menu"></fa-icon>
+              <a (click)="goToFavourite()">Favoritos</a>
+          </li>
+            <li class="subcategory">
+                <fa-icon [icon]="icons.cart" class="icon-menu"></fa-icon>
+                <a (click)="goToCart()">Mi Carrito</a>
+            </li>
+        </ul>
+    </div>
+    <span class="cart-icon float-right">
+        <fa-icon [icon]="icons.cart" class="icon"></fa-icon>
+        <span class="countProdu">{{countProduct > 9 ? countProduct : '0' + countProduct}}</span>
+    </span>
+</div>

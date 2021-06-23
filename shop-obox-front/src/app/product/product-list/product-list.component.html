@@ -1,7 +1,11 @@
 <div class="container">
-    <div class="row">
+    <h2 class="h2 text-dark">{{titleView}}</h2>
+    <div class="row" *ngIf="!load">
         <div class="col-md-3 col-sm-6" *ngFor="let item of products">
             <app-product [product]="item" [isList]="true"></app-product>
         </div>
-    </div>
+      </div>
+      <div class="row" *ngIf="load">
+        <layout-spinner [config]="spinnerDirective"></layout-spinner>
+      </div>
 </div>

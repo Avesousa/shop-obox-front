@@ -1,5 +1,5 @@
 export interface Product {
-    id?:string;
+    id?:number;
     code?:string;
     name?:string;
     description?:string;
@@ -11,5 +11,6 @@ export interface Product {
     imagen?:string;
     ext?:string;
     rating?:number;
-    isSale?:boolean;
+    sale?:number;
+    quantyBuy?: 1 | number;
 }

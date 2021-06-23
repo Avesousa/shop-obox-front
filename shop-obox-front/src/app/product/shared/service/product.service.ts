@@ -28,6 +28,10 @@ export class ProductService {
     return this.http.get<any>(`${URL}${LIST}/${max}`, { headers: this.header });
   }
 
+  getProductsByCategory(category: number): Observable<Product[]> {
+    return this.http.get<any>(`${URL}${LIST}/category/${category}`, { headers: this.header });
+  }
+
   getUrlImage(): string {
     return URL + IMAGE;
   }
