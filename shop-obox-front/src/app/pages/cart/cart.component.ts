@@ -14,6 +14,7 @@ import { ProductService } from 'src/app/product/shared/service/product.service';
 export class PageCartComponent implements OnInit {
 
   public products: Product[];
+  public totalBUy: number;
   icons = {
     cart: faShoppingCart,
     remove: faTrash
@@ -26,11 +27,16 @@ export class PageCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productLocalStorageService.getLocalStorage(true);
+    this.getTotalBuy();
     console.log(this.products);
   }
 
   goToCatalogue(){
     this.router.navigateByUrl('/products/list');
+  }
+
+  getTotalBuy(){
+    this.totalBUy = this.productLocalStorageService.getTotal();
   }
 
 }

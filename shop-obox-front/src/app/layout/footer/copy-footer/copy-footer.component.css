@@ -24,3 +24,20 @@
     margin: 0 auto;
     font-size: 2.8em;
 }
+
+.social a{
+    color: #dc3545;
+}
+
+.social a:hover{
+    color: #22314A;
+}
+
+.number a{
+    color: #000;
+}
+
+.number a:hover{
+    text-decoration: none;
+    color: #dc3545;
+}

@@ -12,8 +12,6 @@
 
         <form class="woocommerce-cart-form" action="#" method="post">
           <div class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
-
-
             <div *ngFor="let product of products"
               class="woocommerce-cart-form__cart-item cart_item d-sm-flex justify-content-between align-items-center my-4 pb-3 border-bottom">
               <div class="media d-block d-sm-flex align-items-center text-center text-sm-left">
@@ -27,7 +25,7 @@
                   </div>
                   <div class="product-price font-size-base text-accent mb-2 mb-sm-0" data-title="Price">
                     <span class="woocommerce-Price-amount amount">
-                      <span class="woocommerce-Price-currencySymbol">$</span>{{product.totalBuy}}
+                      <span class="woocommerce-Price-currencySymbol">AR$ </span>{{product.totalBuy}}
                     </span>
                   </div>
                 </div>
@@ -49,20 +47,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="actions row">
-              <div class="col-md-6 mb-3">
-                <div class="cz-coupon-form mr-4 input-group">
-                  <input type="text" name="coupon_code" id="coupon_code" class="form-control" disabled placeholder="Código de cupón">
-                  <div class="input-group-append">
-                    <button type="submit" disabled class="btn btn-outline-primary" name="apply_coupon">Aplicar cupón</button>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
           </div>
 
 
@@ -83,16 +67,16 @@
               <div class="shop_table shop_table_responsive pb-2">
 
                 <div class="d-flex justify-content-between align-items-center font-size-md mb-2 pb-1 cart-subtotal">
-                  <span class="mr-2">Subtotal:</span>
+                  <span class="mr-2">Total de productos:</span>
                   <span class="text-right" data-title="Subtotal"><span
                       class="woocommerce-Price-amount amount"><bdi><span
-                          class="woocommerce-Price-currencySymbol">$</span>10.<small>00</small></bdi></span></span>
+                          class="woocommerce-Price-currencySymbol">AR$ </span>{{totalBUy}}</bdi></span></span>
                 </div>
 
                 <div class="order-total text-center border-top pt-4 mt-4">
                   <h3 class="font-weight-normal mb-0" data-title="Total"><strong><span
                         class="woocommerce-Price-amount amount"><bdi><span
-                            class="woocommerce-Price-currencySymbol">$</span>10.<small>00</small></bdi></span></strong>
+                            class="woocommerce-Price-currencySymbol">AR$ </span>{{totalBUy}}</bdi></span></strong>
                   </h3>
                 </div>
 
@@ -101,15 +85,12 @@
 
               <div class="wc-proceed-to-checkout">
 
-                <a href="https://w3layouts.com/checkout/"
-                  class="checkout-button btn btn-primary btn-shadow btn-block mt-4">
+                <a class="checkout-button btn btn-primary bg-blue btn-shadow btn-block mt-4">
                   <i class="czi-card font-size-lg mr-2"></i>
-                  Proceed to checkout</a>
+                  Procesar compra</a>
                 <div class="wcppec-checkout-buttons woo_pp_cart_buttons_div">
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>

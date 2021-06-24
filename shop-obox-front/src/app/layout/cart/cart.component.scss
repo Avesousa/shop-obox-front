@@ -4,7 +4,7 @@ $bgRed: #dc3545 ;
 
 .cart {
     position: fixed;
-    bottom: 2vh;
+    top: 3vh;
     right: 2vw;
     z-index: 1000;
     cursor: pointer;
@@ -38,7 +38,7 @@ $bgRed: #dc3545 ;
 .category{
     opacity: 0;
     position: fixed;
-    bottom: 10vh;
+    top: 12vh;
     right: 1vw;
     background-color: rgba(0,0,0,1);
     border-radius: 20px;
