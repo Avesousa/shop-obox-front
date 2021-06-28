@@ -1,0 +1,70 @@
+<div class="d-flex align-items-center pt-3 pb-2 pb-md-3 my-1">
+  <span class="h2 text-dark mb-0">Detalle del cliente</span>
+</div>
+
+<div class="card" *ngIf="isRegister || isLogin">
+  <div class="card-body">
+    <all-user *ngIf="isRegister" (eventZone)="emitZone($event)"></all-user>
+    <login-user #loginUser *ngIf="isLogin" (eventUser)="emitUser($event)" [user]="user"></login-user>
+    <div class="d-flex justify-content-between">
+      <button class="btn bg-red color-white" (click)="getAction()">
+        <fa-icon [icon]="isLogin ? icons.login : icons.register"></fa-icon> 
+        {{isLogin ? 'Iniciar Sesión' : 'Registrarme'}}
+      </button>
+      <button class="btn bg-red color-white" (click)="getUser()">
+        <fa-icon [icon]="icons.back"></fa-icon>
+        Volver
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isOpcion" class="text-center card">
+  <div class="card-body">
+
+    <h5 class="h3 text-center">¿Ya tienes un usuario?</h5>
+    <h5 class="text-center">puedes ingresar o registrarte</h5>
+    
+    <div class="pl-5 pr-5 mt-3 d-flex justify-content-between">
+  
+      <button class="btn bg-red color-white btn-action" (click)="goToLogin()">
+        <fa-icon [icon]="icons.login"></fa-icon> Iniciar sesión
+      </button>
+      <button class="btn bg-blue color-white color-red-hover btn-action" (click)="goToRegister()">
+        <fa-icon [icon]="icons.register"></fa-icon> Registrarme
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLogueado" class="card">
+  <div class="card-body">
+    <div class="card-text">
+      <b>Cliente</b>
+      {{user.id}} | {{user.name}}
+    </div>
+    <div class="card-text">
+      <b>Documento</b>
+      {{user.doc}}
+    </div>
+    <div class="card-text">
+      <b>Dirección de entrega</b>
+      {{user.street}} {{user.number}}
+    </div>
+    <div class="card-text">
+      <b>Zona:</b> 
+      {{user.zone.description}} | AR${{user.zone.price}}
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn bg-blue color-white color-red-hover mt-4">
+        <fa-icon [icon]="icons.update"></fa-icon>
+        Actualizar información
+      </button>
+      <button class="btn bg-red color-white mt-4" (click)="logOut()">
+        <fa-icon [icon]="icons.logout"></fa-icon>
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+</div>
+

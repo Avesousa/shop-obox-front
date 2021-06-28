@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs';
 
 import { ClientService } from '../../../account/shared/service/client.service';
 
-import { User } from '../../../account/shared/model/user.model';
 import { CanvasService } from '../../shared/canvas.service';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'index-header',

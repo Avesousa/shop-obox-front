@@ -19,6 +19,7 @@ import { ProductModule } from '../product/shared/component/product/product.modul
 import { AlertModule } from '../layout/alert/alert.module';
 import { SubscriptionService } from '../services/subscription.service';
 import { CategoryService } from '../category/shared/service/category.service';
+import { ZoneService } from '../services/zone.service';
 
 @NgModule({
   imports: [
@@ -42,7 +43,7 @@ import { CategoryService } from '../category/shared/service/category.service';
     ProductIndexComponent,
     SubscriptionComponent,
   ],
-  providers: [ProductService,SubscriptionService,CategoryService],
+  providers: [ProductService,SubscriptionService,CategoryService,ZoneService],
   bootstrap: [IndexComponent],
   exports: [IndexComponent]
 })

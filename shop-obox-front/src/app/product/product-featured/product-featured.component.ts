@@ -42,7 +42,6 @@ export class ProductFeaturedComponent{
   getProducts() {
     this.spinnerIsView = true;
     this.productService.getProductsLimit(8).subscribe((res: any) => {
-      console.log(res);
       this.products = res.data;
       this.spinnerIsView = false;
     })

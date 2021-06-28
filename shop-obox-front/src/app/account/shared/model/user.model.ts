@@ -2,8 +2,8 @@ export interface Roles {
     admin: boolean;
 }
 
-export class User {
-    public email: string;
+export class UserPrueba {
+    public mail: string;
     public photoURL?: string;
     public roles?: Roles;
     public firstName?: string;

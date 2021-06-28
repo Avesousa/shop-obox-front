@@ -4,10 +4,27 @@
 
 .cart-collaterals{
   position: fixed;
-  top: 18%;
-  padding: 5%;
+  top: 15%;
+  padding: 2%;
+  right: 4%;
   box-shadow: 1px 1px 20px 15px rgba(0,0,0,.15);
   -webkit-box-shadow: 1px 1px 20px 15px rgba(0,0,0,.15);
   -moz-box-shadow: 1px 1px 20px 15px rgba(0,0,0,.15);
 }
 
+@media (max-width: 1200px) {
+
+  .cart-collaterals{
+    position: relative;
+    padding: 5%;
+    top: 0px;
+    width: 100%;
+    box-shadow: unset;
+    background-color: #ccc;
+  }
+  
+}
+
+.form-group label{
+  font-weight: 900;
+}

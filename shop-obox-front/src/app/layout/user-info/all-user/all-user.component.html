@@ -1,0 +1,45 @@
+<div class="form-client">
+
+  <div class="form-row">
+    <div class="form-group col-sm-12 col-md-6">
+      <label for="idNameLastname">Nombre y Apellido</label>
+      <input type="text" class="form-control" name="nameLastname" id="idNameLastname" [(ngModel)]="user.name" placeholder="Nombre y apellido" [disabled]="isUpdate">
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <label for="idDocument">Documento</label>
+      <input type="number" class="form-control" nmae="document" id="idDocument" [(ngModel)]="user.doc" placeholder="Documento" [disabled]="isUpdate">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-12 col-md-8">
+      <label for="idmail">Correo electrónico</label>
+      <input type="mail" class="form-control" name="mail" id="idmail"  placeholder="Correo electrónico" [(ngModel)]="user.mail" [disabled]="isUpdate">
+    </div>
+    <div class="form-group col-sm-12 col-md-4">
+      <label for="idPassword">Contraseña</label>
+      <input type="password" class="form-control" name="password" id="idPassword"  placeholder="Contraseña" [(ngModel)]="user.password">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="idStreet">Calle y altura</label>
+      <input type="text" class="form-control" name="street" id="idStreet"  placeholder="Calle y altura" [(ngModel)]="user.street">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-12 col-md-6">
+      <label for="idNumber">Piso y departamento</label>
+      <input type="text" class="form-control" name="number" id="idNumber"  placeholder="Departamento y piso" [(ngModel)]="user.number">
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <label for="inputState">Zona de envío</label>
+      <select id="inputState" class="form-control" name="zone" [(ngModel)]="zone" (change)="changeZone()">
+        <option [ngValue]="null" selected>Seleccionar una zona</option>
+        <option *ngFor="let zoneItem of zones" [ngValue]="zoneItem">{{zoneItem.description}} | AR$ {{zoneItem.price}}</option>
+      </select>
+    </div>
+  </div>
+</div>

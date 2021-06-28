@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
+import { UtilNumber } from 'src/app/util/utilNumber';
 
 const URL: string = `${environment.URL_SERVE}/products/`;
 const STORE = environment.STORE;
@@ -71,12 +72,12 @@ export class ProductLocalStorageService {
 
   getTotal():number{
     let result: number = 0;
-    this.getLocalStorage(true).forEach((product) => result += this.calculatorPrice(product));
+    this.getLocalStorage(true).forEach((product) => UtilNumber.round(result += this.calculatorPrice(product)));
     return result;
   }
 
   calculatorPrice( product:Product ) : number {
-    return (product.sale ? product.priceSale : product.price) * (product.quantyBuy ? product.quantyBuy : 1);
+    return UtilNumber.round((product.sale ? product.priceSale : product.price) * (product.quantyBuy ? product.quantyBuy : 1));
   }
 
 }
