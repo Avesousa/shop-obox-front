@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { faBlackTie } from '@fortawesome/free-brands-svg-icons';
-import { faBackspace, faBackward, faTools, faUserAlt, faUserLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBackspace, faBackward, faCheck, faTools, faUserAlt, faUserLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/model/user.model';
 import { Zone } from 'src/app/model/zone.model';
 import { UserService } from 'src/app/services/user.service';
@@ -15,6 +15,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
 export class UserInfoComponent implements OnInit {
 
   @ViewChild(LoginUserComponent) loginUser: LoginUserComponent;
+  @ViewChild(AllUserComponent) allUser: AllUserComponent;
   @Output() eventZone = new EventEmitter<Zone>();
   @Output() eventUser = new EventEmitter<User>();
   @Input() zone: Zone;
@@ -25,13 +26,15 @@ export class UserInfoComponent implements OnInit {
   public isLogin: boolean = false;
   public isRegister: boolean = false;
   public isOpcion: boolean = true;
+  public toUpdate: boolean = false;
 
   icons = {
     update: faTools,
     login: faUserAlt,
     register: faUserPlus,
     back: faBackward,
-    logout: faUserLock
+    logout: faUserLock,
+    ok: faCheck
   };
 
   constructor(private userService: UserService) { }
@@ -49,15 +52,19 @@ export class UserInfoComponent implements OnInit {
         this.isOpcion = false;
         this.isLogin = false;
         this.isRegister = false;
+        this.toUpdate = false;
         this.emitZone(this.zone);
       }else{
         this.user = new User();
+        this.user.id = null;
         this.zone = null;
         this.isLogin = false;
         this.isRegister = false;
         this.isOpcion = true;
+        this.toUpdate = false;
         this.emitZone(null);
       }
+      this.eventUser.emit(this.user);
     });
   }
 
@@ -80,9 +87,18 @@ export class UserInfoComponent implements OnInit {
     this.getUser();
   }
 
+  goToUpdate(){
+    this.isLogueado = false;
+    this.toUpdate = true;
+  }
+
   getAction(){
     if(this.isLogin){
       this.loginUser.login();
+    }else if(this.isRegister){
+      this.allUser.register();
+    }else if(this.toUpdate){
+      this.allUser.update();
     }
   }
 

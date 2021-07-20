@@ -17,6 +17,6 @@
     </div>
     <span class="cart-icon float-right">
         <fa-icon [icon]="icons.cart" class="icon"></fa-icon>
-        <span class="countProdu">{{countProduct > 9 ? countProduct : '0' + countProduct}}</span>
+        <span class="countProdu">{{ cartService.getCount() > 9 ? cartService.getCount() : '0' + cartService.getCount() }}</span>
     </span>
 </div>

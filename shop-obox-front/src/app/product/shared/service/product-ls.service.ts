@@ -41,6 +41,11 @@ export class ProductLocalStorageService {
 
   }
 
+  updateLocalStorage(product: Product){
+    this.deleteLocalStorage(product.id, true);
+    this.saveLocalStorage(product,true);
+  }
+
   //Comprobar que hay elementos en el LS
   getLocalStorage(isToCart:boolean): Product[] {
     let productLS: Product[];
@@ -64,6 +69,10 @@ export class ProductLocalStorageService {
     productLS.splice(index, 1);
     //Añadimos el arreglo actual al LS
     this.setLocalStorage(productLS, isToCart);
+  }
+
+  emptyList(isToCart: boolean){
+    localStorage.setItem(isToCart ? "products" : "favourite", JSON.stringify([]));
   }
 
   setLocalStorage(products: Product[], isToCart:boolean){

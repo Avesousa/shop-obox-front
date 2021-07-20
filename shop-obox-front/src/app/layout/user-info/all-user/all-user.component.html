@@ -32,14 +32,15 @@
   <div class="form-row">
     <div class="form-group col-sm-12 col-md-6">
       <label for="idNumber">Piso y departamento</label>
-      <input type="text" class="form-control" name="number" id="idNumber"  placeholder="Departamento y piso" [(ngModel)]="user.number">
+      <input type="text" class="form-control" name="number" id="idNumber"  placeholder="Departamento y piso" [(ngModel)]="user.number"> 
     </div>
     <div class="form-group col-sm-12 col-md-6">
       <label for="inputState">Zona de envío</label>
-      <select id="inputState" class="form-control" name="zone" [(ngModel)]="zone" (change)="changeZone()">
+      <select id="inputState" class="form-control" name="zone" [(ngModel)]="zone" (change)="changeZone()" [compareWith]="compare">
         <option [ngValue]="null" selected>Seleccionar una zona</option>
         <option *ngFor="let zoneItem of zones" [ngValue]="zoneItem">{{zoneItem.description}} | AR$ {{zoneItem.price}}</option>
       </select>
     </div>
   </div>
 </div>
+<alert #alertSubscription></alert>

@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { AlertComponent } from '../alert/alert.component';
 
@@ -14,7 +14,8 @@ export class SubscriptionComponent implements OnInit {
   @ViewChild('alertSubscription') alert : AlertComponent;
   public mail: string = '';
   public icons = {
-    mail: faEnvelope
+    mail: faEnvelope,
+    ok: faCheck
   };
   constructor(private service: SubscriptionService) { }
 

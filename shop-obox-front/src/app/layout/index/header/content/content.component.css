@@ -11,7 +11,8 @@
 }
 
 .h1{
-    /*font-family: 'Great Vibes', cursive;*/
-    font-size: 4em;
-    color: #F89F3F;
+    font-family: 'Great Vibes', cursive;
+    font-size: 8em;
+    color: #747474;
+    font-weight: 900;
 }

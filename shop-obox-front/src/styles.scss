@@ -45,8 +45,15 @@ $redColor: #dc3545 !important;
 
 .color-red-hover:hover{
     color: #dc3545;
-  }
 
+    &:disabled{
+        color: #fff;
+    }
+}
+
+.h2{
+    color: rgb(43, 44, 71);
+  }
 layout-spinner{
   width: 100%;
 }

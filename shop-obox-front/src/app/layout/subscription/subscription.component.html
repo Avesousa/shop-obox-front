@@ -8,7 +8,10 @@
                 </span>
                 <input type="text" class="form-control" placeholder="Correo electrónico" [(ngModel)]="mail">
                 </div>
-                <button class="btn btn-primary" (click)="sendSubscription()">Suscribirme</button>
+                <button class="btn bg-red color-white btn-shadow" (click)="sendSubscription()">
+                    <fa-icon [icon]="icons.ok"></fa-icon>
+                    Suscribirme
+                </button>
         </div>
     </div>
 </div>

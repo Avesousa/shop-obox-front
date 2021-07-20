@@ -6,6 +6,8 @@
   padding: 0;
   padding-top: 1%;
   padding-bottom: 1%;
+  max-height: 15vh;
+  min-height: 15vh;
 }
 
 $bgHeader: #000;
@@ -71,6 +73,10 @@ $bgRed: #dc3545 ;
 .logo {
   margin-right: 5%;
   margin-left: 5%;
+}
+
+.logo a img{
+  width: 5em;
 }
 
 li > a.nav-link{

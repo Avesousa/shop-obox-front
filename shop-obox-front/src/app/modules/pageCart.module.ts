@@ -11,6 +11,7 @@ import { ProductModule } from '../product/shared/component/product/product.modul
 import { ProductLocalStorageService } from '../product/shared/service/product-ls.service';
 import { SpinnerModule } from './spinner.module';
 import { UserModule } from './user.module';
+import { AlertModule } from '../layout/alert/alert.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { UserModule } from './user.module';
     HeaderModule,
     FooterModule,
     SpinnerModule,
-    UserModule
+    UserModule,
+    AlertModule
   ],
   declarations: [
     PageCartComponent

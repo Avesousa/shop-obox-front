@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart, faUser, faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import { ProductLocalStorageService } from 'src/app/product/shared/service/product-ls.service';
+import { Cart } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +11,8 @@ import { ProductLocalStorageService } from 'src/app/product/shared/service/produ
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-
-  countProduct: number = 0;
+  
+  cartService: Cart; 
   icons = {
     instagram : faInstagram,
     facebook: faFacebook,
@@ -21,10 +22,11 @@ export class CartComponent implements OnInit {
     heartSolid: faHeartSolid,
   };
 
-  constructor(private productLocalStorage: ProductLocalStorageService, private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.countProduct = this.productLocalStorage.getLocalStorage(true).length;
+    this.cartService = Cart.getInstance();
+    this.cartService.updateCount();
   }
 
   goToFavourite():void{

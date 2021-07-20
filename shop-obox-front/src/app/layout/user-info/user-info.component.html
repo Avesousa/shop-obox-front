@@ -1,10 +1,10 @@
-<div class="d-flex align-items-center pt-3 pb-2 pb-md-3 my-1">
-  <span class="h2 text-dark mb-0">Detalle del cliente</span>
+<div class="d-flex align-items-center pt-3 pb-2 pb-md-3">
+  <span class="h2 mb-0">Detalle del cliente</span>
 </div>
 
 <div class="card" *ngIf="isRegister || isLogin">
   <div class="card-body">
-    <all-user *ngIf="isRegister" (eventZone)="emitZone($event)"></all-user>
+    <all-user *ngIf="isRegister" (eventZone)="emitZone($event)" (eventUser)="emitUser($event)"></all-user>
     <login-user #loginUser *ngIf="isLogin" (eventUser)="emitUser($event)" [user]="user"></login-user>
     <div class="d-flex justify-content-between">
       <button class="btn bg-red color-white" (click)="getAction()">
@@ -38,7 +38,7 @@
 </div>
 
 <div *ngIf="isLogueado" class="card">
-  <div class="card-body">
+  <div  class="card-body">
     <div class="card-text">
       <b>Cliente</b>
       {{user.id}} | {{user.name}}
@@ -56,7 +56,7 @@
       {{user.zone.description}} | AR${{user.zone.price}}
     </div>
     <div class="d-flex justify-content-between">
-      <button class="btn bg-blue color-white color-red-hover mt-4">
+      <button class="btn bg-blue color-white color-red-hover mt-4" (click)="goToUpdate()">
         <fa-icon [icon]="icons.update"></fa-icon>
         Actualizar información
       </button>
@@ -67,4 +67,22 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="toUpdate" class="card">
+  <div class="card-body">
+    <all-user (eventZone)="emitZone($event)" (eventUser)="emitUser($event)" [user]="user" [isUpdate]="true"></all-user>
+    <div class="d-flex justify-content-between">
+      <button class="btn bg-blue color-white color-red-hover mt-4" (click)="getAction()">
+        <fa-icon [icon]="icons.ok"></fa-icon>
+        Actualizar información
+      </button>
+      <button class="btn bg-red color-white mt-4" (click)="getUser()">
+        <fa-icon [icon]="icons.back"></fa-icon>
+        Volver
+      </button>
+    </div>
+  </div>
+</div>
+
+
 

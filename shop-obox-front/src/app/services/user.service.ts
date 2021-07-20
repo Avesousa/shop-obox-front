@@ -35,6 +35,10 @@ export class UserService {
     return this.http.post(`${URL}login`,user,this.header);
   }
 
+  update(user: User): Observable<any>{
+    return this.http.put(`${URL}update`, user, this.header);  
+  }
+
   //Service for localstorage.
 
   getToken(){
