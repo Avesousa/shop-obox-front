@@ -1,17 +1,33 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthenticationModule } from 'src/authentication/authentication.module';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CategoryModule } from './modules/category/category.module';
+import { HeaderComponent } from './modules/commons/component/header/header.component';
+import { MenuComponent } from './modules/commons/component/menu/menu.component';
+import { ProductModule } from './modules/product/product.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    AuthenticationModule,
+    CategoryModule,
+    ProductModule,
+    DashboardModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
