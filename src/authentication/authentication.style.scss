@@ -1,0 +1,135 @@
+$color-green: #2ae27a;
+$color-red: #ff4c4c;
+$color-dark: rgb(60, 60, 60);
+$color-primary: #a780ff;
+$color-secondary: #270570;
+
+//Media query
+$small: 300px;
+$medium: 1100px;
+
+.container{
+    
+    &_full{
+        display: flex;
+        position: absolute;
+        align-items:center;
+        justify-content:center;
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+    }
+}
+
+.login_container{
+    align-self: center;
+    background-color: #fff;
+    padding: 2.5em;
+    border-radius: 1.5em;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.36);
+
+    @media screen and (min-width:$medium){
+        max-width: 30%;
+    }
+
+
+    &_header{
+
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        
+        &_title{
+            color: $color-primary;
+            font-family: sans-serif;
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+    }
+
+    &_description{
+        width:100%;
+        text-align: center;
+        margin-bottom: 1em;
+        font-size: .8em;
+        font-weight: 100;
+        font-style: italic;
+
+        b{
+            font-weight: 900;
+        }
+    }
+
+    &_form_group{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin: 1em 0;
+        font-size: 1em;
+
+        label{
+            margin-left: 0.5em;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10%;
+        }
+
+        input{
+            font-size: 1.2em;
+            padding: .8em .5em;
+        }
+
+        &_button{
+            display: flex;
+            justify-content: flex-end;
+            font-size: 1.2em;
+            
+            input{
+                color: $color-primary;
+            }
+
+        }
+    }
+
+    &_footer{
+        display: flex;
+        justify-content: flex-end;
+        font-size: .8em;
+        font-family: sans-serif;
+        margin-top: 3em;
+        font-style: italic;
+
+        span{
+            font-weight: 900;
+            margin-left: .5em;
+        }
+
+    }
+
+
+
+    //media query
+
+    @media (min-width:$small) and (max-width:$medium) {
+        max-width:100%;
+
+        &_form_group{
+
+            justify-content:unset;
+            flex-wrap: wrap;
+            flex-direction:column;
+
+            label{
+                width:100%;
+            }
+
+        }
+    }
+
+    
+}

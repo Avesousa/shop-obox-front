@@ -1,0 +1,29 @@
+<div class="list">
+  <div class="list_title">
+    <h1>Categorias de venta</h1>
+  </div>
+
+    <!--for searching-->
+  <search #searchCategory 
+    placeholder="Buscar categorias" 
+    (toPutListElement)="toPutListCategories($event)"
+    [findString]="find">
+  </search>
+
+  <div class="list_container">
+    <category-model
+      [isCreation]="true"
+      (toGetAllEvent)="toGetAll($event)"
+    ></category-model>
+    <category-model
+      *ngFor="let category of listForView"
+      [category]="category"
+      [isCreation]="false"
+      (toGetAllEvent)="toGetAll($event)"
+    ></category-model>
+    <category-model
+      [isCreation]="true"
+      (toGetAllEvent)="toGetAll($event)"
+    ></category-model>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div
+  class="item item_creation"
+  [ngClass]="{ item_creation: isCreation && !viewForm }"
+>
+  <div
+    *ngIf="isCreation && !viewForm"
+    class="item_creation_container ptb-9"
+    (click)="add()">
+    <span class="item_creation_add">+</span>
+    <span class="item_creation_text"> Agregar Producto </span>
+  </div>
+
+  <product-form
+    *ngIf="isUpdate || (isCreation && viewForm)"
+    [isCreation]="isCreation"
+    (toBackEvent)="toEventBack($event)"
+    [product]="product"
+    [labelAction]="isUpdate ? 'Actualizar' : 'Agregar'"
+    (toActionEvent)="isUpdate ? toUpdate(product) : toCreate(product)"
+  >
+  </product-form>
+
+  <div *ngIf="!isCreation && !isUpdate" class="item_img">
+    <img
+      [src]="
+        productService.getUrlImage() + product.ext + '/' + product.imagen
+      "
+      alt="img"
+    />
+  </div>
+
+  <div *ngIf="!isCreation && !isUpdate" class="item_info">
+    <div class="item_info_name">{{ product.name }}</div>
+    <hr />
+    <div class="item_info_product">
+      <div class="item_info_description">{{ product.description }}</div>
+      <div class="item_info_price">AR${{ product.price }}</div>
+    </div>
+
+    <div class="item_button">
+      <button class="item_button_update" (click)="update()">Actualizar</button>
+      <button class="danger">Eliminar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="list">
+  <div class="list_title">
+    <h1>Lista de productos</h1>
+  </div>
+
+  <!--for searching-->
+  <search #searchProduct 
+    placeholder="Buscar productos" 
+    (toPutListElement)="toPutListProduct($event)"
+    [findString]="find">
+  </search>
+
+  <!-- For creation -->
+  <div class="list_container">
+    <product-model
+      [isCreation]="true"
+      (toGetAllEvent)="toGetAll($event)"
+    ></product-model>
+
+  <!-- Interation -->
+    <product-model
+      *ngFor="let product of listForView"
+      [product]="product"
+      [isCreation]="false"
+      (toGetAllEvent)="toGetAll($event)"
+    ></product-model>
+
+    <!-- For creation -->
+    <product-model
+      [isCreation]="true"
+      (toGetAllEvent)="toGetAll($event)"
+    ></product-model>
+  </div>
+</div>

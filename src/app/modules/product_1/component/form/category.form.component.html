@@ -1,0 +1,47 @@
+<form class="categoryForm form" (ngsubmit)="send()">
+
+    <div class="form_group">
+        <label for="id">ID</label>
+        <input type="text" name="id" disabled>
+    </div>
+
+    <div class="form_group">
+      <label for="descripcion">Nombre de categoria</label>
+      <input type="text" name="nameproduct" class="form-control" required />
+    </div>
+
+    <div class="form_group">
+      <label for="descripcion">Descripcion</label>
+      <textarea ></textarea>
+    </div>
+
+
+    <div class="form_group">
+      <label for="categoria">Categoria</label>
+      <select name="categoria" class="form-control">
+          <!--
+              <option *ngfor="let category of categories" [ngvalue]="category">{'{'}{'{'}category.nombre{'}'}{'}'}</option>          
+          -->
+      </select>
+    </div>
+
+    <div class="form_group">
+      <label for="quantity">Valoración de producto</label>
+      <select name="rating" class="form-control">
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
+        <option value={5}>5</option>
+      </select>
+    </div>
+    
+    <div class="form_group">
+      <label for="imagen">Imagen del producto</label>
+      <input type="file" name="imagen" class="form-control s-border" placeholder="Subir imagen del producto" (change)="setFiles($event)" />
+    </div>
+    
+    <button>Enviar</button>
+
+  </form>
+  

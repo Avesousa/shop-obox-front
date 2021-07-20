@@ -1,0 +1,21 @@
+<div class="menu">
+    <div class="company" (click)="goToDashboard()">
+        <div class="image">
+            <img src="../../../../../assets/images/brand/gmb/logo_s.png" alt="company" srcset="">
+        </div>
+
+        <div class="name">
+            El gran mercado de bebidas
+        </div>
+    </div>
+    <div class="nav">
+        <div class="icon">
+            <fa-icon [icon]="icons.bar"></fa-icon>
+        </div>
+
+        <ul>
+            <li><a [routerLink]="['/category']">Categorias</a></li>
+            <li><a [routerLink]="['/product']">Productos</a></li>
+        </ul>
+    </div>
+</div>

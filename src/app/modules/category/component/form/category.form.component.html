@@ -1,0 +1,51 @@
+<div class="categoryForm form">
+  <div *ngIf="!isCreation" class="form_group">
+    <label for="id">ID</label>
+    <input type="text" name="id" disabled [(ngModel)]="category.id"/>
+  </div>
+
+  <div class="form_group">
+    <label for="descripcion">Nombre de categoria</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="category.name"/>
+  </div>
+
+  <div class="form_group">
+    <label for="descripcion">Descripcion</label>
+    <textarea [(ngModel)]="category.description"></textarea>
+  </div>
+
+  <!--
+
+      <div class="form_group">
+        <label for="imagen">Imagen de la categoria</label>
+        <input
+          type="file"
+          name="imagen"
+          class="form-control s-border"
+          placeholder="Subir imagen del producto"
+          (change)="setFiles($event)"
+        />
+      </div>
+
+  -->
+
+
+  <div class="form_group">
+    <label for="imagen">Icono de la categoria</label>
+    <div class="viewCategory">
+        <img *ngIf="category.icon" [src]="categoryService.getUrlImage() + category.exticon + '/' + category.icon" alt="{{category.name}}">
+    </div>
+    <input
+      type="file"
+      name="imagen"
+      class="form-control s-border"
+      placeholder="Subir imagen del producto"
+      (change)="setFiles($event)"
+    />
+  </div>
+
+  <div class="form_group_button">
+    <button (click)="toAction()">{{labelAction}}</button>
+    <button class="danger" (click)="toBack()">Volver</button>
+  </div>
+</div>

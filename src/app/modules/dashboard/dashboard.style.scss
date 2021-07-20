@@ -1,0 +1,25 @@
+$color-green: #2ae27a;
+$color-green-dark: #2d8152;
+$color-red: #ff4c4c;
+$color-dark: rgb(60, 60, 60);
+$color-primary: #a780ff;
+$color-secondary: #270570;
+$color-yellow: rgb(255, 225, 126);
+
+.dashboard{
+
+    text-align: center;
+    padding: 2em 6em;
+    color: $color-secondary;
+
+    h1{
+        color:$color-primary;
+        font-size: 4em;
+        font-weight: 900;
+
+        span{
+            color: $color-yellow;
+        }
+    }
+
+}

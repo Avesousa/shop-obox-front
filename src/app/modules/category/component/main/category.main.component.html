@@ -1,0 +1,52 @@
+<div
+  class="item item_creation"
+  [ngClass]="{ item_creation: isCreation && !viewForm }"
+>
+  <div
+    *ngIf="isCreation && !viewForm"
+    class="item_creation_container"
+    (click)="add()">
+    <span class="item_creation_add">+</span>
+    <span class="item_creation_text"> Agregar categoria </span>
+  </div>
+
+  <category-form
+    *ngIf="isUpdate || (isCreation && viewForm)"
+    [isCreation]="isCreation"
+    (toBackEvent)="toEventBack($event)"
+    [category]="category"
+    [labelAction]="isUpdate ? 'Actualizar' : 'Agregar'"
+    (toActionEvent)="isUpdate ? toUpdate(category) : toCreate(category)"
+  >
+  </category-form>
+
+  <div *ngIf="!isCreation && !isUpdate" class="item_img">
+    <img
+      [src]="
+        categoryService.getUrlImage() + category.exticon + '/' + category.icon
+      "
+      alt="img"
+    />
+  </div>
+
+  <div *ngIf="!isCreation && !isUpdate" class="item_info">
+    <div class="item_info_name">{{ category.name }}</div>
+    <hr />
+    <div class="item_info_description">{{ category.description }}</div>
+
+    <!--
+            <ViewError
+              message={this.state.message}
+              type={this.state.type}
+              view={this.state.isViewError}
+              onHide={this.changeToViewError}
+              onUpdateList={this.props.updateList}
+            />
+        -->
+
+    <div class="item_button">
+      <button class="item_button_update" (click)="update()">Actualizar</button>
+      <button class="danger">Eliminar</button>
+    </div>
+  </div>
+</div>

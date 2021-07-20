@@ -1,0 +1,98 @@
+<div class="productForm form">
+  <div *ngIf="!isCreation" class="form_group">
+    <label for="id">ID</label>
+    <input type="text" name="id" disabled [(ngModel)]="product.id" />
+  </div>
+
+  <div class="form_group">
+    <label for="name">Nombre del producto</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      [(ngModel)]="product.name"
+    />
+  </div>
+
+  <div class="form_group">
+    <label for="descripcion">Descripcion</label>
+    <textarea [(ngModel)]="product.description"></textarea>
+  </div>
+
+  <div class="form_group">
+    <label for="category">Categoria</label>
+    <select name="category" id="category" [(ngModel)]="product.category">
+      <option [value]="0" selected disabled>Seleccionar una categoría</option>
+      <option *ngFor="let category of listCategories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form_group">
+    <label for="price">Precio</label>
+    <input
+      type="number"
+      name="price"
+      class="form-control"
+      [(ngModel)]="product.price"
+    />
+  </div>
+
+  <div class="form_group">
+    <label for="isSale">¿está de oferta?</label>
+    
+    <select name="isSale" id="isSale" [(ngModel)]="product.sale">
+      <option [value]="0" selected>No</option>
+      <option [value]="1">Si</option>
+    </select>
+  </div>
+
+  <div class="form_group">
+    <label for="priceSale">Precio de oferta</label>
+    <input
+      type="number"
+      name="priceSale"
+      class="form-control"
+      [(ngModel)]="product.priceSale"
+    />
+  </div>
+
+  <div class="form_group">
+    <label for="rating">Valoración</label>
+    
+    <select name="rating" id="rating" [(ngModel)]="product.rating">
+      <option [value]="1">1</option>
+      <option [value]="2">2</option>
+      <option [value]="3">3</option>
+      <option [value]="4">4</option>
+      <option [value]="5">5</option>
+    </select>
+  </div>
+
+  <div class="form_group">
+    <label for="imagen">Imagen del producto</label>
+    <div class="viewProduct">
+      <img
+        *ngIf="product.imagen"
+        [src]="
+          productService.getUrlImage() + product.ext + '/' + product.imagen
+        "
+        alt="{{ product.name }}"
+        width="100"
+      />
+    </div>
+    <input
+      type="file"
+      name="imagen"
+      class="form-control s-border"
+      placeholder="Subir imagen del producto"
+      (change)="setFiles($event)"
+    />
+  </div>
+
+  <div class="form_group_button">
+    <button (click)="toAction()">{{ labelAction }}</button>
+    <button class="danger" (click)="toBack()">Volver</button>
+  </div>
+</div>
