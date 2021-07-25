@@ -1,43 +1,64 @@
   <nav [ngClass]="doScroll ? '' : 'static'" class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+    <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+    <div class="container-fluid menu-mobile">
+      <a href="" class="nav-link logo-mobile">
+        <img src="assets/logo.png" alt="" srcset="" width="100">
+      </a>
       <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
         &#9776;
       </button>
-
-      <!-- Step 2: Add the ngbCollapse directive to the element below. -->
-      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-        <ul class="navbar-nav navItems row justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sobre Nosotros</a>
-          </li>
-          <li class="catalogo nav-item dropdown">
-            <a class="nav-link catalogo-link dropdown-toggle" (click)="goToCatalogue()">
-              Cátalogo
-            </a>
-            <div *ngIf="categories.length > 0" class="category">
-              <ul>
-                <li *ngFor="let item of categories" class="subcategory">
-                  <a (click)="goToCategory(item.id, item.name)" class="a-subcategory"><img [src]="categoryService.getUrlImage() + item.exticon + '/' + item.icon" class="icon-category" alt="" width="30"> {{item.name}}</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item logo">
-            <a href="" class="nav-link">
-              <img src="assets/logo.png" alt="" srcset="">
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mi cuenta</a>
-          </li>
-        </ul>
-      </div>
-
     </div>
+
+    <div class="container-nav container-fluid">
+      <div class="container">
+  
+        <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+          <ul class="navbar-nav navItems row justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" (click)="goToCategory(categoriesMain[0].id, categoriesMain[0].name)">
+                <img [src]="categoryService.getUrlImage() + categoriesMain[0].exticon + '/' + categoriesMain[0].icon" class="icon-category icon-main" alt="" width="50">
+                {{categoriesMain[0].name}}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="goToCategory(categoriesMain[1].id, categoriesMain[1].name)">
+                <img [src]="categoryService.getUrlImage() + categoriesMain[1].exticon + '/' + categoriesMain[1].icon" class="icon-category icon-main" alt="" width="50">
+                {{categoriesMain[1].name}}
+              </a>
+            </li>
+
+            <li class="nav-item logo logo-pc">
+              <a href="" class="nav-link">
+                <img src="assets/logo.png" alt="" srcset="">
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" (click)="goToCategory(categoriesMain[2].id, categoriesMain[2].name)">
+                <img [src]="categoryService.getUrlImage() + categoriesMain[2].exticon + '/' + categoriesMain[2].icon" class="icon-category icon-main" alt="" width="50">
+                {{categoriesMain[2].name}}
+              </a>
+            </li>
+
+            <li class="catalogo nav-item dropdown">
+              <a class="nav-link catalogo-link dropdown-toggle" (click)="goToCatalogue()">
+                Otras
+              </a>
+              <div *ngIf="categories.length > 0" class="category">
+                <ul>
+                  <li *ngFor="let item of categories" class="subcategory">
+                    <a (click)="goToCategory(item.id, item.name)" class="a-subcategory"><img [src]="categoryService.getUrlImage() + item.exticon + '/' + item.icon" class="icon-category" alt="" width="30"> {{item.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+
 
   </nav>
   <app-cart *ngIf="!disabledCart"></app-cart>

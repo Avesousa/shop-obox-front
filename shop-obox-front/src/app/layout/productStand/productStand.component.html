@@ -1,0 +1,77 @@
+<div class="stand" *ngIf="productStandView">
+    
+    <div class="product-item">
+        <div class="product-price">
+            <span class="product-price-label">¡OFERTA!</span>
+            <span class="price-sale"> {{productMain.price}} </span>
+            <span class="product-price-sale"> {{productMain.priceSale}} </span>
+        </div>
+        <div class="stand-main">
+            <div class="stand-main-product">
+                <img [src]="productService.getUrlImage() + productMain.ext + '/' + productMain.imagen" alt="{{productMain.name}}">
+            </div>
+            <div class="stand-main-info">
+                <span class="info-name"> {{productMain.name}} | {{productMain.id}} </span>
+                <span class="info-description"> {{productMain.description}} </span>
+                <ul class="rating">
+                    <li *ngFor="let rating of fillRating(productMain.rating ? productMain.rating : 1)">
+                        <fa-icon [icon]="icons.start"></fa-icon>
+                    </li>
+                    <li *ngFor="let rating of fillRating(5- (productMain.rating ? productMain.rating : 1))" class="far">
+                        <fa-icon [icon]="icons.start"></fa-icon>
+                    </li>
+                </ul>
+                <button class="btn" (click)="addCart(productMain)">
+                    Comprar
+                    <fa-icon [icon]="icons.cart"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="stand-other">
+        <div class="stand-other-content">
+            ¿Quieres hacer un trago?, solo haz tu pedido...
+        </div>
+        <div class="stand-other-items">
+
+                <div class="stand-item"  *ngFor="let item of products">
+                    
+                    <div class="stand-item-price">
+                        <div class="product-price">
+                            <span class="product-price-label">¡OFERTA!</span>
+                            <span class="product-price-sale price-sale"> {{item.price}} </span>
+                            <span class="product-price-sale"> {{item.priceSale}} </span>
+                        </div>
+                    </div>
+
+                    <div class="stand-item-image">
+                        <img [src]="productService.getUrlImage() + item.ext + '/' + item.imagen" alt="{{item.name}}">
+                    </div>
+    
+                    <div class="stand-item-info">
+                        <span class="info-name"> {{item.name}} | {{item.id}} </span>
+                        <span class="info-description"> {{item.description}} </span>
+                        <ul class="rating">
+                            <li *ngFor="let rating of fillRating(item.rating ? item.rating : 1)">
+                                <fa-icon [icon]="icons.start"></fa-icon>
+                            </li>
+                            <li *ngFor="let rating of fillRating(5- (item.rating ? item.rating : 1))" class="far">
+                                <fa-icon [icon]="icons.start"></fa-icon>
+                            </li>
+                        </ul>
+                        <button class="btn" (click)="addCart(item)">
+                            Comprar
+                            <fa-icon [icon]="icons.cart"></fa-icon>
+                        </button>
+                    </div>
+
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+<alert #alertProductStand></alert>

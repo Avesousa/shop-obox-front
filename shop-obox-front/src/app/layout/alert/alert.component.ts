@@ -8,8 +8,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 export class AlertComponent{
 
   public alerts: any[] = [];
-  public static SUCCESS: any = { classname: 'bg-success text-light', delay: 5000 };
-  public static DANGER: any = { classname: 'bg-danger text-light', header: 'Alerta', delay: 9000 };
+  public static SUCCESS: any = { classname: 'bg-success text-light alert-text-size', delay: 5000 };
+  public static DANGER: any = { classname: 'bg-danger text-light alert-text-size', header: 'Alerta', delay: 9000 };
 
   isTemplate(alert) { return alert.textShow instanceof TemplateRef; }
 

@@ -20,6 +20,8 @@ export class NavComponent implements OnInit, OnDestroy, OnChanges {
   public isMenuCollapsed = true;
   public currentWindowWidth: number;
   public categories: Category[];
+  public categoriesMain: Category[] = [];
+
 
   @HostListener('window:scroll',['$event'])
   onWindowScroll(){
@@ -45,9 +47,22 @@ export class NavComponent implements OnInit, OnDestroy, OnChanges {
     this.categories = [];
     this.categoryService.getCategory().subscribe((response:any) => {
       this.categories = response.data;
-      console.log(this.categories);
+      this.definedCategory();      
     })
     this.currentWindowWidth = window.innerWidth;
+  }
+
+  definedCategory(){
+
+    for(let i = 0; i < 3; i++){
+      let random = this.doRandom(this.categories.length);
+      this.categoriesMain.push(this.categories[random]);
+      this.categories.splice(random,1);
+    }
+  }
+
+  doRandom(max: number){
+    return Math.floor(Math.random() * (max - 0)) + 0;
   }
 
   ngOnChanges(){

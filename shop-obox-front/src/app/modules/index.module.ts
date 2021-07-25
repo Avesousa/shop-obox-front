@@ -20,6 +20,7 @@ import { AlertModule } from '../layout/alert/alert.module';
 import { SubscriptionService } from '../services/subscription.service';
 import { CategoryService } from '../category/shared/service/category.service';
 import { ZoneService } from '../services/zone.service';
+import { ProductStandModule } from '../layout/productStand/productStand.module';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { ZoneService } from '../services/zone.service';
     ProductModule,
     FooterModule,
     HeaderIndexModule,
-    AlertModule
+    AlertModule,
+    ProductStandModule
   ],
   declarations: [
     IndexComponent,

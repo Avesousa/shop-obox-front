@@ -44,9 +44,12 @@ export class PageCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.zone = this.user ? this.user.zone : null;
-    this.products = this.productLocalStorageService.getLocalStorage(true);
-    this.getTotalBuy();
-    this.toDisableForBuy();
+    this.productLocalStorageService.getLocalStorage(true)
+      .then( (products) => {
+        this.products = products;
+        this.getTotalBuy();
+        this.toDisableForBuy();
+    } );
   }
 
   goToCatalogue(){

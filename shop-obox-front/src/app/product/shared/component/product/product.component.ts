@@ -48,7 +48,7 @@ export class ProductComponent {
 
   getFavourite(): boolean {
     let productLS = this.productLocalStorageService
-      .getLocalStorage(false)
+      .getLocal(false)
       .find((prod) => prod.id == this.product.id);
     this.isFavourite = productLS != null && productLS != undefined;
     return this.isFavourite;

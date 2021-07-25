@@ -1,5 +1,4 @@
-import { Params } from './../../../../node_modules/@fortawesome/fontawesome-svg-core/index.d';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -8,7 +7,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class PageProductsComponent implements OnInit {
-
   value: any;
   type: string;
   title: string;

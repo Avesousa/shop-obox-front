@@ -14,9 +14,10 @@
     .cart-{
     
       &right{
-        position: fixed;
+        position: sticky;
         right: 3em;
         width: 40%;
+        height:100%;
       }
 
       &left{

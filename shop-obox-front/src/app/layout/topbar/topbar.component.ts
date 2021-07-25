@@ -21,7 +21,7 @@ export class TopbarComponent implements OnInit {
   constructor(private productLocalStorage: ProductLocalStorageService) { }
 
   ngOnInit(): void {
-    this.countProduct = this.productLocalStorage.getLocalStorage(true).length;
+    this.countProduct = this.productLocalStorage.getLocal(true).length;
   }
 
 }

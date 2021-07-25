@@ -37,7 +37,7 @@
               </div>
 
               <div class="info-item">
-                <span>AR$ {{ product.totalBuy }}</span>
+                <span>Precio: AR$ {{ product.sale ? product.priceSale : product.price }}</span>
               </div>
 
               <div class="info-item">
@@ -49,6 +49,9 @@
                   placeholder="Cantidad de productos"
                   (change)="changeCount(product)"
                   />
+              </div>
+              <div class="info-item">
+                <span>Total: AR$ {{ product.totalBuy }}</span>
               </div>
             </div>
 

@@ -21,7 +21,11 @@ export class ProductService {
   private header = new HttpHeaders({ 'content-Type': 'application/json', 'store': STORE });
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<any>(URL + LIST, { headers: this.header });
+    return this.http.get<any>(URL, { headers: this.header });
+  }
+
+  getProduct(id): Observable<Product>{
+    return this.http.get<Product>(URL + id, { headers: this.header});
   }
 
   getProductsLimit(max: number): Observable<Product[]> {
@@ -30,6 +34,10 @@ export class ProductService {
 
   getProductsByCategory(category: number): Observable<Product[]> {
     return this.http.get<any>(`${URL}${LIST}/category/${category}`, { headers: this.header });
+  }
+
+  getProductsStand(max:number): Observable<Product[]> {
+    return this.http.get<any>(`${URL}${LIST}/stand/${max}`, { headers: this.header });
   }
 
   getUrlImage(): string {

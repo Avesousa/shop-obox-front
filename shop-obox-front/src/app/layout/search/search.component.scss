@@ -1,0 +1,29 @@
+$color-green: #2ae27a;
+$color-green-dark: #2d8152;
+$color-red: #ff4c4c;
+$color-dark: rgb(60, 60, 60);
+$color-primary: #a780ff;
+$color-secondary: #270570;
+$color-yellow: rgb(255, 225, 126);
+
+.search{
+
+    display: flex;
+    justify-content:center;
+    background-color:#fff;
+    margin-bottom: 1.2em;
+
+    input{
+        font-size: 1.5em;
+        width:100%;
+        padding: .5em;
+        border: solid .05em $color-dark;
+        border-radius: .3em;
+
+        &:active, &:focus, &:focus-visible{
+            border-width: .08em;
+            border-color: $color-dark;
+        }
+    }
+
+}

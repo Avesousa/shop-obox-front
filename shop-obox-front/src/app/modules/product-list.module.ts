@@ -12,6 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductModule } from '../product/shared/component/product/product.module';
 import { ProductLocalStorageService } from '../product/shared/service/product-ls.service';
 import { SpinnerModule } from './spinner.module';
+import { SearchModule } from '../layout/search/search.module';
+import { ProductStandModule } from '../layout/productStand/productStand.module';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { SpinnerModule } from './spinner.module';
     ProductModule,
     HeaderModule,
     FooterModule,
-    SpinnerModule
+    SpinnerModule,
+    SearchModule,
+    ProductStandModule
   ],
   declarations: [
     PageProductsComponent,

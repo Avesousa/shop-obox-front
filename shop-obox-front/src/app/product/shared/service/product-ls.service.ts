@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
 import { environment } from '../../../../environments/environment';
-import { Observable } from 'rxjs';
 import { UtilNumber } from 'src/app/util/utilNumber';
+import { ProductService } from './product.service';
 
 const URL: string = `${environment.URL_SERVE}/products/`;
 const STORE = environment.STORE;
@@ -16,12 +15,12 @@ const IMAGE: string = 'image/';
   providedIn: 'root'
 })
 export class ProductLocalStorageService {
-
-  constructor() { }
+  
+  constructor(private productService: ProductService) { }
 
   //Almacenar en el LS
   saveLocalStorage(product: Product,isToCart:boolean) {
-    let products: Product[] = this.getLocalStorage(isToCart);
+    let products: Product[] = this.getLocal(isToCart);
     
     //Agregar el product al carrito
     let verifProd = products.find(prod => product.id == prod.id);
@@ -47,7 +46,41 @@ export class ProductLocalStorageService {
   }
 
   //Comprobar que hay elementos en el LS
-  getLocalStorage(isToCart:boolean): Product[] {
+  async getLocalStorage(isToCart:boolean): Promise<Product[]> {
+      let productLS: Product[] = this.getLocal(isToCart);
+      let products: Product[] = [];
+      console.log("======> This are products in local", productLS);
+      
+      if(productLS){
+        if(productLS.length > 0){
+          
+          for(let product of productLS){
+            
+            let productNew = await this.getProduct(product.id);
+            products = this.insertProduct(product, productNew[0], products);
+          }
+
+        }else{ return [] }
+      }else{ return [] }
+
+      await console.log('<===== This are products return', products);
+      return products;
+
+  }
+
+  insertProduct(product: Product, productNew: Product, productList: Product[]): Product[]{
+    productNew.quantyBuy = product.quantyBuy;
+    productNew.totalBuy = product.totalBuy;
+    productList.push(productNew);
+    console.log("InsertProduct :: Product insert | product list", productNew, productList);
+    return productList;
+  }
+
+  getProduct(id): Promise<Product>{
+    return this.productService.getProduct(id).toPromise();
+  }
+
+  getLocal(isToCart:boolean){
     let productLS: Product[];
 
     //Comprobar si hay algo en LS
@@ -57,13 +90,14 @@ export class ProductLocalStorageService {
       productLS = JSON.parse(localStorage.getItem(isToCart ? "products" : "favourite"));
     }
     return productLS;
+
   }
 
   //Eliminar product por ID del LS
   deleteLocalStorage(productID: number, isToCart:boolean) {
     let productLS: Product[];
     //Obtenemos el arreglo de products
-    productLS = this.getLocalStorage(isToCart);
+    productLS = this.getLocal(isToCart);
     //Comparar el id del product borrado con LS
     let index = productLS.findIndex(prod => prod.id == productID);
     productLS.splice(index, 1);
@@ -81,7 +115,7 @@ export class ProductLocalStorageService {
 
   getTotal():number{
     let result: number = 0;
-    this.getLocalStorage(true).forEach((product) => UtilNumber.round(result += this.calculatorPrice(product)));
+    this.getLocal(true).forEach((product) => UtilNumber.round(result += this.calculatorPrice(product)));
     return result;
   }
 
