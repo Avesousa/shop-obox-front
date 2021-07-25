@@ -7,7 +7,6 @@ import { FileService } from './file.service';
 
 const URL: string = `${environment.URL_SERVE}/productos/`;
 const STORE = environment.STORE;
-const LIST: string = 'list';
 const IMAGE: string = 'image/';
 const SAVEIMAGE: string = 'save/image/';
 
@@ -29,7 +28,7 @@ export class ProductService {
   }
 
   getProduct(): Observable<Product[]> {
-    return this.http.get<any>(URL + LIST, this.header);
+    return this.http.get<any>(URL, this.header);
   }
 
   getUrlImage(): string {
