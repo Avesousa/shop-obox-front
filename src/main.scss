@@ -9,7 +9,8 @@ $color-yellow: rgb(255, 225, 126);
 body{
   margin: 0;
   padding: 0;
-  background-color: rgba($color-dark, 0.3)
+  background-color: rgba($color-dark, 0.3);
+  font-family: sans-serif;
 }
 
 header {
