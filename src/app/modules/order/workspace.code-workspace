@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../shop-obox-front"
+		},
+		{
+			"path": "../../../../../storeBackend"
+		}
+	]
+}
