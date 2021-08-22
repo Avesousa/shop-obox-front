@@ -8,9 +8,9 @@ import { Zone } from 'src/app/model/zone.model';
 import { User } from 'src/app/model/user.model';
 import { UserInfoComponent } from 'src/app/layout/user-info/user-info.component';
 import { UtilNumber } from 'src/app/util/utilNumber';
-import { Order } from 'src/app/model/order.model';
-import { OrderService } from 'src/app/services/order.service';
+import { Orden } from 'src/app/model/orden.model';
 import { AlertComponent } from 'src/app/layout/alert/alert.component';
+import { OrdenService } from 'src/app/services/orden.service';
 
 @Component({
   selector: 'page-cart',
@@ -40,7 +40,7 @@ export class PageCartComponent implements OnInit {
     private router: Router,
     private productLocalStorageService: ProductLocalStorageService,
     public productService: ProductService,
-    private orderService: OrderService) { }
+    private ordenService: OrdenService) { }
 
   ngOnInit(): void {
     this.zone = this.user ? this.user.zone : null;
@@ -91,14 +91,14 @@ export class PageCartComponent implements OnInit {
   }
 
   toBuy(){
-    let order: Order= {
+    let orden: Orden= {
       user: this.user,
       products: this.products
     }
     console.log("se proceso la compra");
-    this.orderService.create(order).subscribe( (result) => {
+    this.ordenService.create(orden).subscribe( (result) => {
       this.productLocalStorageService.emptyList(true);
-      this.alert.show(`La order número ${result.data.order} se ha creado correctamente`, AlertComponent.SUCCESS);
+      this.alert.show(`La orden número ${result.data.orden} se ha creado correctamente`, AlertComponent.SUCCESS);
       this.ngOnInit();
       setTimeout( ()=>{
         this.goToHome();

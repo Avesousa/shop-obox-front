@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit, OnChanges{
   public products: Product[];
   private listProduct: Product[];
   //public sortOptions: SelectItem[];
-  public sortOrder: number;
+  public sortOrden: number;
   public sortField: string;
   public titleView: string = '';
   public load: boolean = true;

@@ -9,7 +9,7 @@ export class UserPrueba {
     public firstName?: string;
     public lastName?: string;
     public password?: string;
-    public orders?: object;
+    public ordenes?: object;
     public confirmPassword?: string;
     public uid?: string;
 }

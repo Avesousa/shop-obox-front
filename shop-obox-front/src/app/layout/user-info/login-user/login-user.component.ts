@@ -27,7 +27,7 @@ export class LoginUserComponent implements OnInit {
         this.changeUser();
       } else {
         this.getError(result.message)
-      }
+      } 
     }, (error: any) => {
       this.getError(error.error.message);
     })

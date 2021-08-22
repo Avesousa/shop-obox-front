@@ -2,15 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Order } from '../model/order.model';
+import { Orden } from '../model/orden.model';
 
-const URL: string = `${environment.URL_SERVE}/order/`;
+const URL: string = `${environment.URL_SERVE}/orden/`;
 const STORE: string = environment.STORE;
 
 @Injectable({
     providedIn: 'root'
 })
-export class OrderService {
+export class OrdenService {
 
     constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class OrderService {
             })
     };
 
-    create(order: Order):Observable<any> {
-        return this.http.post(URL,order,this.header);
+    create(orden: Orden):Observable<any> {
+        return this.http.post(URL,orden,this.header);
     }
 }

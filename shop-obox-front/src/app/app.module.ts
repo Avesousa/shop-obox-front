@@ -22,7 +22,7 @@ import { PageCartModule } from './modules/pageCart.module';
     NavModule,
     IndexModule,
     PageProductModule,
-    PageCartModule
+    PageCartModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
