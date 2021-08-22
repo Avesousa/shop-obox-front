@@ -1,0 +1,77 @@
+<div class="container" (click)="closeAllMenu()">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th scope="col">
+                ID
+            </th>
+            <th scope="col">
+                
+            </th>
+            <th scope="col">
+                Descripción
+            </th>
+            <th scope="col">
+                Categoria
+            </th>
+            <th scope="col">
+                Precio
+            </th>
+            <th scope="col">
+                Cantidad
+            </th>
+            <th scope="col">
+                Total
+            </th>
+            <th scope="col">
+                Estado
+            </th>
+        </tr>
+        <tr *ngFor="let product of products" (click)="closeAllMenu()" (contextmenu)="onRightClick($event, product.id)">
+            <td>
+                {{product.id}}
+            </td>
+            <td>
+                <img
+                [src]="
+                  productService.getUrlImage() +
+                  product.ext +
+                  '/' +
+                  product.imagen
+                "
+                alt="{{ product.name }}"
+                width="100"
+              />
+            </td>
+            <td>
+                {{product.description}}
+            </td>
+            <td>
+                {{product.category}}
+            </td>
+            <td>
+                {{product.price}}
+            </td>
+            <td>
+                {{product.quantity}}
+            </td>
+            <td>
+                {{product.total}}
+            </td>
+            <td>
+                <state [states]="states" [state]="product.state"></state>
+            </td>
+            <div id="menu-option-{{product.id}}" class="menu-option">
+                <ul>
+                    <li *ngIf="product.state != productState.aggregate" (click)="add(product)">Agregar</li>
+                    <li *ngIf="product.state != productState.reject" (click)="reject(product)">Rechazar</li>
+                   <!--<li>Recomendar otro</li>-->
+                </ul>
+            </div>
+        </tr>
+    </table>
+    <button *ngIf="isFinish" class="success" (click)="finish()">Finalizar</button>
+    <button *ngIf="orden.state == ordenState.finish" class="success" (click)="send()">Enviar</button>
+
+
+
+</div>

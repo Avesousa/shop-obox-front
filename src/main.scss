@@ -66,6 +66,15 @@ button.danger{
     }
 }
 
+button.success{
+  background: $color-green-dark;
+  color: #fff;
+
+  &:hover{
+    background-color: rgba($color-green-dark, .8);
+  }
+}
+
 .list {
   background-color: #e5e5e5;
 
@@ -236,3 +245,4 @@ menu{
 .ptb-9{
   padding: 8em 0px;
 }
+/* Importing Bootstrap SCSS file. */

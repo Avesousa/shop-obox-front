@@ -11,6 +11,8 @@ import { HeaderComponent } from './modules/commons/component/header/header.compo
 import { MenuComponent } from './modules/commons/component/menu/menu.component';
 import { ProductModule } from './modules/product/product.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { OrdenModule } from './modules/orden/orden.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     AuthenticationModule,
     CategoryModule,
     ProductModule,
-    DashboardModule
+    DashboardModule,
+    OrdenModule,
+    NgbModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

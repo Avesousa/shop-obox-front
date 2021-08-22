@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
     @Input() public placeholder: string = "Search";
     @Input() public findString: string[] = [];
     
+    public view: boolean = true;
     
     @Output() private toPutListElement = new EventEmitter<any[]>();
     
@@ -20,11 +21,15 @@ export class SearchComponent implements OnInit {
     
     constructor() { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {}
 
     setList(list: any[]){
         this.list = list;
         this.search();
+    }
+
+    hide(){
+        this.view = false;
     }
 
     search(){

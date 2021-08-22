@@ -1,0 +1,17 @@
+<div class="state" [ngClass]="size == 'md' ? '' : 'large'">
+  <div *ngFor="let item of states">
+    <div
+      *ngIf="item.state == state"
+      class="state"
+      [ngClass]="{
+        state_finish: item.style == styleState.FINISH,
+        state_process: item.style == styleState.PROCESS,
+        state_new: item.style == styleState.NEW,
+        state_other: item.style == styleState.OTHER,
+        state_reject: item.style == styleState.REJECT
+      }"
+    >
+      {{ item.label }}
+    </div>
+  </div>
+</div>

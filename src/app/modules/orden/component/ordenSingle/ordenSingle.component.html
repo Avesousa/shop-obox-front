@@ -1,0 +1,65 @@
+<div class="item">
+  <div class="item_info">
+
+    <!-- start head -->
+    <div class="item_info_head">
+      <div class="item_info_head_id">
+        Orden: {{ orden.id }}
+      </div>
+      <div class="item_info_head_state">
+        <state [states]="states" [state]="orden.state"></state>
+      </div>
+    </div>
+    <!-- end head -->
+
+    <hr />
+
+    <div class="item_info_user">
+      <div class="user_item">
+        <div class="item_label">Cliente</div>
+        <div class="item_value">{{ orden.user.name }}</div>
+      </div>
+
+      <div class="user_item">
+        <div class="item_label">Documento</div>
+        <div class="item_value">{{ orden.user.doc }}</div>
+      </div>
+
+      <div class="user_item">
+        <div class="item_label">Mail de contacto</div>
+        <div class="item_value">{{ orden.user.mail }}</div>
+      </div>
+
+      <div class="user_item">
+        <div class="item_label">Dirrección</div>
+        <div class="item_value">
+          {{ orden.user.street }} {{ orden.user.streetNumber }}
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="item_info_product">
+        <div class="item_info_description">Productos comprados</div>
+        <div class="item_info_quantity">{{ orden.products.length }}</div>
+    </div>
+    
+    <hr>
+
+    <div class="item_info_product">
+        <div class="item_info_description">Total</div>
+        <div class="item_info_quantity">{{ orden.total}}</div>
+    </div>
+
+    <div class="item_button">
+      <button class="item_button_update" (click)="toViewInfo()">Ver orden</button>
+      <button *ngIf="orden.state != ordenState.reject && orden.state != ordenState.send" class="danger" (click)="reject()">Rechazar</button>
+      <button *ngIf="orden.state == ordenState.reject" class="success" (click)="approve()">Aprobar</button>
+      <button *ngIf="orden.state == ordenState.finish" class="success" (click)="send()">Enviar</button>
+    </div>
+  </div>
+
+
+  
+</div>
+<modal #modalOrden [title]="'Orden N° ' + orden.id" [orden]="orden"></modal>

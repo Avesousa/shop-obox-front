@@ -1,0 +1,23 @@
+<div class="list">
+    <div class="list_title">
+      <h1>Lista de Ordenes</h1>
+    </div>
+  
+    <!--for searching-->
+    <search #searchOrden 
+      placeholder="Buscar productos" 
+      (toPutListElement)="toPutListOrden($event)"
+      (notView)="true"
+      [findString]="find">
+    </search>
+  
+    <!-- For creation -->
+    <div class="list_container">
+    <!-- Interation -->
+      <orden-single
+        *ngFor="let orden of listForView"
+        [orden]="orden"
+      ></orden-single>
+    </div>
+  </div>
+  

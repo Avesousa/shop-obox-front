@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   version: '1.0.1',
-  URL_SERVE: 'http://localhost:7800/api',
+  URL_SERVE: 'http://localhost:8200/api',
   STORE: '74'
 };
 //URL_SERVE: 'http://192.168.0.7:7800/api',

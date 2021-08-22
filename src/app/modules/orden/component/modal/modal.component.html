@@ -1,0 +1,63 @@
+<div *ngIf="show" class="modal">
+
+    <div class="modal_main">
+
+        <!-- start head -->
+
+        <div class="modal_head">
+            <div class="modal_head_title"> 
+                {{title}}
+                <state [states]="states" size="xl" [state]="orden.state"></state>
+            </div>
+            
+            <div class="modal_head_close" (click)="toHide()">X</div>
+        </div>
+
+        <!-- end head -->
+
+        <div class="modal_body">
+            <div class="modal_body_info">
+                <div class="item_info">
+                    <div class="item_info_user">
+                        <div class="user_item">
+                          <div class="item_label">Cliente</div>
+                          <div class="item_value">{{ orden.user.name }}</div>
+                        </div>
+                  
+                        <div class="user_item">
+                          <div class="item_label">Documento</div>
+                          <div class="item_value">{{ orden.user.doc }}</div>
+                        </div>
+                  
+                        <div class="user_item">
+                          <div class="item_label">Mail de contacto</div>
+                          <div class="item_value">{{ orden.user.mail }}</div>
+                        </div>
+                  
+                        <div class="user_item">
+                          <div class="item_label">Dirrección</div>
+                          <div class="item_value">
+                            {{ orden.user.street }} {{ orden.user.streetNumber }}
+                          </div>
+                        </div>
+                        <div class="user_item">
+                            <div class="item_label">Monto total</div>
+                            <div class="item_value">
+                              {{ orden.total }}
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="modal_body_table">
+              <table-product [orden]="orden"></table-product>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

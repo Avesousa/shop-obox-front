@@ -1,0 +1,36 @@
+.state{
+
+    padding: .6em;
+    border-radius: .3em;
+    font-size: 1em;
+
+    &_new{
+      background-color: #b3e5fc;
+      color: #23547b;
+    }
+
+    &_process{
+      background-color: #ffd8b2;
+      color: #805b36;
+    }
+
+    &_finish{
+      background-color: #c8e6c9;
+      color: #256029;
+    }
+
+    &_other{
+      background-color: #eccfff;
+      color: #694382;
+    }
+
+    &_reject{
+      background-color: #ffcdd2;
+      color: #c63737;
+    }
+
+  }
+
+  .large{
+      font-size: .5em;
+  }
